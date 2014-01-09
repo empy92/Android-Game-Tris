@@ -15,6 +15,9 @@ package com.example;
 
 public class Grid {
 
+	static final int EMPTY = 0;
+	static final int X = 1;
+	static final int O = 2;
 	private int line;
 	private int matrix[][];
 	
@@ -28,7 +31,7 @@ public class Grid {
 	//use this to marks the grid. If the box is not empty then return false
 	public boolean marks(int v, int h, int mark) {
 		boolean empty = true;
-		if(matrix[v][h]!=0) {
+		if(matrix[v][h]!=EMPTY) {
 			matrix[v][h] = mark;
 		}
 		else {
