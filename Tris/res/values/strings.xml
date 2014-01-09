@@ -3,6 +3,7 @@
 
     <string name="app_name">Tris</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="todo">Now we \'ll implement the main view of app</string>
+    <string name="title_activity_grid">GridActivity</string>
 
 </resources>
