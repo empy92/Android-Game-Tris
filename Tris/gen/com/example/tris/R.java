@@ -26,8 +26,17 @@ public final class R {
         public static final int x=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f080001;
-        public static final int buttonStartGame=0x7f080000;
+        public static final int action_settings=0x7f08000a;
+        public static final int b00=0x7f080000;
+        public static final int b01=0x7f080001;
+        public static final int b02=0x7f080002;
+        public static final int b10=0x7f080003;
+        public static final int b11=0x7f080004;
+        public static final int b12=0x7f080005;
+        public static final int b20=0x7f080006;
+        public static final int b21=0x7f080007;
+        public static final int b22=0x7f080008;
+        public static final int buttonStartGame=0x7f080009;
     }
     public static final class layout {
         public static final int activity_grid=0x7f030000;
