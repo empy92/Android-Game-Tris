@@ -6,5 +6,6 @@
     <string name="todo">Now we \'ll implement the main view of app</string>
     <string name="title_activity_grid">GridActivity</string>
     <string name="StartGame">New Game</string>
+    <string name="alreadysign">Already sign!</string>
 
 </resources>

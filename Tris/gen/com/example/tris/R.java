@@ -49,6 +49,7 @@ public final class R {
     public static final class string {
         public static final int StartGame=0x7f050004;
         public static final int action_settings=0x7f050001;
+        public static final int alreadysign=0x7f050005;
         public static final int app_name=0x7f050000;
         public static final int title_activity_grid=0x7f050003;
         public static final int todo=0x7f050002;

@@ -31,7 +31,7 @@ public class Grid {
 	//use this to marks the grid. If the box is not empty then return false
 	public boolean marks(int v, int h, int mark) {
 		boolean empty = true;
-		if(matrix[v][h]!=EMPTY) {
+		if(matrix[v][h]==EMPTY) {
 			matrix[v][h] = mark;
 		}
 		else {
