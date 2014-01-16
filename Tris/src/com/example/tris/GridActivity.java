@@ -49,7 +49,10 @@ public class GridActivity extends Activity implements OnClickListener{
 													+" !!!!",Toast.LENGTH_LONG);
 				toast.show();
 			}
-			else
+			else if(game.getTurn()>=9){
+				Toast toast = Toast.makeText(this, R.string.noonewins,Toast.LENGTH_LONG);
+				toast.show();
+			}else
 				game.setPlayer();
 		}
 		else{

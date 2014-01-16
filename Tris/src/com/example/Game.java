@@ -4,10 +4,12 @@ public class Game {
 
 	private Grid grid;
 	private int player;
+	private int turn;
 	
 	public Game() {
 		grid = new Grid();
 		player = Grid.O;
+		turn = 0;
 	}
 	
 	public void setPlayer(){
@@ -15,6 +17,7 @@ public class Game {
 			player = Grid.O;
 		else
 			player = Grid.X;
+		turn++;
 	}
 	
 	public boolean mark(int v, int h){
@@ -27,5 +30,9 @@ public class Game {
 	
 	public int getPlayer(){
 		return player;
+	}
+	
+	public int getTurn(){
+		return turn;
 	}
 }
