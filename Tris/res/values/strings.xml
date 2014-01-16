@@ -7,5 +7,6 @@
     <string name="title_activity_grid">GridActivity</string>
     <string name="StartGame">New Game</string>
     <string name="alreadysign">Already sign!</string>
+    <string name="win">Good job player</string>
 
 </resources>

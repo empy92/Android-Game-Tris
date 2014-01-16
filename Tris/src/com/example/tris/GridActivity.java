@@ -42,7 +42,15 @@ public class GridActivity extends Activity implements OnClickListener{
 				((ImageButton)v).setImageResource(R.drawable.x);
 			else
 				((ImageButton)v).setImageResource(R.drawable.o);
-			game.setPlayer();
+			if(game.isfinish()){
+				disable();
+				Toast toast = Toast.makeText(this, "Good job player "
+													+Integer.toString(game.getPlayer())
+													+" !!!!",Toast.LENGTH_LONG);
+				toast.show();
+			}
+			else
+				game.setPlayer();
 		}
 		else{
 			Toast toast = Toast.makeText(this, R.string.alreadysign, Toast.LENGTH_SHORT);
@@ -111,5 +119,24 @@ public class GridActivity extends Activity implements OnClickListener{
 		}
 		return p;
 	}
-
+	private void disable(){
+		ImageButton b00 = (ImageButton) findViewById(R.id.b00);
+		b00.setClickable(false);
+		ImageButton b01 = (ImageButton) findViewById(R.id.b01);
+		b01.setClickable(false);
+		ImageButton b02 = (ImageButton) findViewById(R.id.b02);
+		b02.setClickable(false);
+		ImageButton b10 = (ImageButton) findViewById(R.id.b10);
+		b10.setClickable(false);
+		ImageButton b11 = (ImageButton) findViewById(R.id.b11);
+		b11.setClickable(false);
+		ImageButton b12 = (ImageButton) findViewById(R.id.b12);
+		b12.setClickable(false);
+		ImageButton b20 = (ImageButton) findViewById(R.id.b20);
+		b20.setClickable(false);
+		ImageButton b21 = (ImageButton) findViewById(R.id.b21);
+		b21.setClickable(false);
+		ImageButton b22 = (ImageButton) findViewById(R.id.b22);
+		b22.setClickable(false);
+	}
 }

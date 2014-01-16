@@ -53,6 +53,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int title_activity_grid=0x7f050003;
         public static final int todo=0x7f050002;
+        public static final int win=0x7f050006;
     }
     public static final class style {
         /** 
