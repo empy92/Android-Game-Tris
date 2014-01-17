@@ -1,4 +1,7 @@
 package com.example;
+
+import android.graphics.Point;
+
 /*
  ---- ---- ----
 |    |    |    | v0
@@ -20,6 +23,7 @@ public class Grid {
 	static final int O = 2;
 	private int line;
 	private int matrix[][];
+	private int nfree;
 	
 	//use this to create a default grid for Tic-Tac-Toe
 	public Grid() {
@@ -79,4 +83,25 @@ public class Grid {
 			
 	}
 	
+	//call this after 'Point[] free()'
+	public int getFree() {
+		return nfree;
+	}
+	
+	public Point[] free(){
+		Point[] free = new Point[9];
+		nfree = 0;
+		for(int i=0; i<line; i++) {
+			for(int j=0; j<line; j++) {
+				if(matrix[i][j] == EMPTY){
+					Point p = new Point();
+					p.x = i;
+					p.y = j;
+					free[nfree] = new Point();
+					nfree++;
+				}
+			}
+		}
+		return free;
+	}
 }

@@ -5,6 +5,8 @@ public class Game {
 	private Grid grid;
 	private int player;
 	private int turn;
+	static final int LEVEL = 2;
+	static final int MAXLEVEL = 3; //IA prop = (MAXLEVEL-LEVEL)/MAXLEVEL
 	
 	public Game() {
 		grid = new Grid();
