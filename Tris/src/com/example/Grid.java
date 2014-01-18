@@ -97,7 +97,7 @@ public class Grid {
 					Point p = new Point();
 					p.x = i;
 					p.y = j;
-					free[nfree] = new Point();
+					free[nfree] = p;
 					nfree++;
 				}
 			}

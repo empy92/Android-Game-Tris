@@ -1,5 +1,9 @@
 package com.example;
 
+import java.util.Random;
+
+import android.graphics.Point;
+
 public class Game {
 
 	private Grid grid;
@@ -7,11 +11,14 @@ public class Game {
 	private int turn;
 	static final int LEVEL = 2;
 	static final int MAXLEVEL = 3; //IA prop = (MAXLEVEL-LEVEL)/MAXLEVEL
+	private Random rand;
 	
 	public Game() {
 		grid = new Grid();
 		player = Grid.O;
 		turn = 0;
+		rand = new Random();
+		rand.setSeed(System.currentTimeMillis()/101);
 	}
 	
 	public void setPlayer(){
@@ -36,5 +43,11 @@ public class Game {
 	
 	public int getTurn(){
 		return turn;
+	}
+	
+	public Point markIA(){
+		Point p = grid.free()[rand.nextInt(grid.getFree())];
+		grid.marks(p.x, p.y, player);
+		return p;
 	}
 }

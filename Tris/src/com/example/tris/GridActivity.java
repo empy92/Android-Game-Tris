@@ -41,7 +41,7 @@ public class GridActivity extends Activity implements OnClickListener{
 			if(game.getPlayer() == 1)
 				((ImageButton)v).setImageResource(R.drawable.x);
 			else
-				((ImageButton)v).setImageResource(R.drawable.o);
+				;//((ImageButton)v).setImageResource(R.drawable.o);
 			if(game.isfinish()){
 				disable();
 				Toast toast = Toast.makeText(this, "Good job player "
@@ -50,10 +50,24 @@ public class GridActivity extends Activity implements OnClickListener{
 				toast.show();
 			}
 			else if(game.getTurn()>=9){
+				disable();
 				Toast toast = Toast.makeText(this, R.string.noonewins,Toast.LENGTH_LONG);
 				toast.show();
-			}else
+			}else{
 				game.setPlayer();
+				//for IA--------------------------------
+				if(game.getTurn()<=8)
+					IA(R.drawable.o);
+				if(game.isfinish()){
+					disable();
+					Toast toast = Toast.makeText(this, "Good job player "
+														+Integer.toString(game.getPlayer())
+														+" !!!!",Toast.LENGTH_LONG);
+					toast.show();
+				}
+				else
+					game.setPlayer();
+			}
 		}
 		else{
 			Toast toast = Toast.makeText(this, R.string.alreadysign, Toast.LENGTH_SHORT);
@@ -141,5 +155,27 @@ public class GridActivity extends Activity implements OnClickListener{
 		b21.setClickable(false);
 		ImageButton b22 = (ImageButton) findViewById(R.id.b22);
 		b22.setClickable(false);
+	}
+	
+	private void IA(int resId){
+		Point p = game.markIA();
+		if(p.x == 0 && p.y ==0)
+			((ImageButton) findViewById(R.id.b00)).setImageResource(resId);
+		else if(p.x == 0 && p.y ==1)
+			((ImageButton) findViewById(R.id.b01)).setImageResource(resId);
+		else if(p.x == 0 && p.y ==2)
+			((ImageButton) findViewById(R.id.b02)).setImageResource(resId);
+		else if(p.x == 1 && p.y ==0)
+			((ImageButton) findViewById(R.id.b10)).setImageResource(resId);
+		else if(p.x == 1 && p.y ==1)
+			((ImageButton) findViewById(R.id.b11)).setImageResource(resId);
+		else if(p.x == 1 && p.y ==2)
+			((ImageButton) findViewById(R.id.b12)).setImageResource(resId);
+		else if(p.x == 2 && p.y ==0)
+			((ImageButton) findViewById(R.id.b20)).setImageResource(resId);
+		else if(p.x == 2 && p.y ==1)
+			((ImageButton) findViewById(R.id.b21)).setImageResource(resId);
+		else if(p.x == 2 && p.y ==2)
+			((ImageButton) findViewById(R.id.b22)).setImageResource(resId);
 	}
 }
