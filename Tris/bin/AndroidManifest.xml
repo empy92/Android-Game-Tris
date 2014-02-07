@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.tris.MainActivity"
+            android:name="game.tris.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.tris.GridActivity"
+            android:name="game.tris.activity.GridActivity"
             android:label="@string/title_activity_grid" >
         </activity>
     </application>
