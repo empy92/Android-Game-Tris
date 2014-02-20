@@ -37,8 +37,8 @@ public final class R {
         public static final int b21=0x7f080007;
         public static final int b22=0x7f080008;
         public static final int button1=0x7f08000c;
-        public static final int start1v1=0x7f08000b;
-        public static final int startGame=0x7f08000a;
+        public static final int startGame1v1=0x7f08000b;
+        public static final int startGame1vIA=0x7f08000a;
         public static final int todo=0x7f080009;
     }
     public static final class layout {
@@ -55,8 +55,8 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int functiontodo=0x7f050008;
         public static final int noonewins=0x7f050006;
-        public static final int start1v1=0x7f050007;
-        public static final int startGame=0x7f050004;
+        public static final int startGame1v1=0x7f050007;
+        public static final int startGame1vIA=0x7f050004;
         public static final int title_activity_grid=0x7f050003;
         public static final int todo=0x7f050002;
     }

@@ -18,11 +18,13 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button startGame = (Button)findViewById(R.id.startGame);
-        startGame.setOnClickListener(this);
+        Button startGame1vIA = (Button)findViewById(R.id.startGame1vIA);
+        startGame1vIA.setOnClickListener(this);
+        Button startGame1v1 = (Button)findViewById(R.id.startGame1v1);
+        startGame1v1.setOnClickListener(this);
         findViewById(R.id.button1).setOnTouchListener(this);
-        findViewById(R.id.start1v1).setOnTouchListener(this);
-        findViewById(R.id.startGame).setOnTouchListener(this);
+        findViewById(R.id.startGame1v1).setOnTouchListener(this);
+        findViewById(R.id.startGame1vIA).setOnTouchListener(this);
     }
 
 
@@ -36,7 +38,7 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 
 	@Override
 	public void onClick(View v) {
-		if(v.getId() == R.id.startGame){
+		if(v.getId() == R.id.startGame1vIA){
 			Intent intent = new Intent(this,GridActivity.class);
 			startActivity(intent);
 		}
@@ -46,15 +48,15 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	@Override
 	public boolean onTouch(View arg0, MotionEvent arg1) {
 		if(arg0.getId() == R.id.button1){
-			findViewById(R.id.startGame).setPressed(false);
-			findViewById(R.id.start1v1).setPressed(false);
+			findViewById(R.id.startGame1vIA).setPressed(false);
+			findViewById(R.id.startGame1v1).setPressed(false);
 		}
-		else if(arg0.getId() == R.id.startGame){
+		else if(arg0.getId() == R.id.startGame1vIA){
 			findViewById(R.id.button1).setPressed(false);
-			findViewById(R.id.start1v1).setPressed(false);
+			findViewById(R.id.startGame1v1).setPressed(false);
 		}
-		else if(arg0.getId() == R.id.start1v1){
-			findViewById(R.id.startGame).setPressed(false);
+		else if(arg0.getId() == R.id.startGame1v1){
+			findViewById(R.id.startGame1vIA).setPressed(false);
 			findViewById(R.id.button1).setPressed(false);
 		}
 		return false;

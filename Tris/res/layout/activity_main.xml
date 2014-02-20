@@ -13,18 +13,18 @@
         android:text="@string/todo" />
 
      <Button
-         android:id="@+id/startGame"
+         android:id="@+id/startGame1vIA"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_weight="1.00"
-         android:text="@string/startGame" />
+         android:text="@string/startGame1vIA"/>
 
      <Button
-         android:id="@+id/start1v1"
+         android:id="@+id/startGame1v1"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_weight="1.00"
-         android:text="@string/functiontodo" />
+         android:text="@string/startGame1v1" />
 
      <Button
          android:id="@+id/button1"

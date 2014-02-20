@@ -3,12 +3,12 @@
 
     <string name="app_name">Tris</string>
     <string name="action_settings">Settings</string>
-    <string name="todo">Now we \'ll implement the main view of app</string>
+    <string name="todo">Welcome to Tris Game, select your game and have fun!</string>
     <string name="title_activity_grid">GridActivity</string>
-    <string name="startGame">New Game</string>
+    <string name="startGame1vIA">Play vs IA!</string>
     <string name="alreadysign">Already sign!</string>
     <string name="noonewins">Two good or two noob players?</string>
-    <string name="start1v1">Game 1vs1</string>
+    <string name="startGame1v1">Play 1 vs 1!</string>
     <string name="functiontodo">Coming Soon!</string>
 
 </resources>
