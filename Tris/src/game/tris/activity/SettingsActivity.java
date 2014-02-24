@@ -1,8 +1,6 @@
 package game.tris.activity;
 
 import com.example.tris.R;
-import com.example.tris.R.layout;
-import com.example.tris.R.menu;
 
 import android.os.Bundle;
 import android.app.Activity;
