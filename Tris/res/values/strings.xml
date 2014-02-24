@@ -9,8 +9,9 @@
     <string name="alreadysign">Already sign!</string>
     <string name="noonewins">Two good or two noob players?</string>
     <string name="startGame1v1">Play 1 vs 1!</string>
-    <string name="functiontodo">Coming Soon!</string>
+    <string name="settingsButton">Settings</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 
 </resources>

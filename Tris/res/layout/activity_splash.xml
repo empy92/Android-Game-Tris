@@ -16,4 +16,22 @@
         android:layout_centerInParent="true"
         android:src="@drawable/logo01" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imgLogo"
+        android:layout_centerHorizontal="true"
+        android:text="Wild Stone Studio" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>
