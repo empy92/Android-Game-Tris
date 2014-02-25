@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Point;
 import android.view.Menu;
 import android.view.View;
@@ -50,7 +51,7 @@ public class GridActivity extends Activity implements OnClickListener{
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 		 
 				// set title
-				alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+" !!!!");
+				alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+"!");
 		 
 				// set dialog message
 				alertDialogBuilder
@@ -58,16 +59,14 @@ public class GridActivity extends Activity implements OnClickListener{
 				.setCancelable(false)
 				.setPositiveButton("Home",new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog,int id) {
-						// if this button is clicked, close
-						// current activity
 						GridActivity.this.finish();
 					}
 				})
-				.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+				.setNegativeButton("Play Again!",new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog,int id) {
-						// if this button is clicked, just close
-						// the dialog box and do nothing
-						dialog.cancel();
+						Intent intent = getIntent();
+						finish();
+						startActivity(intent);
 					}
 				});
 		 
@@ -98,16 +97,14 @@ public class GridActivity extends Activity implements OnClickListener{
 				.setCancelable(false)
 				.setPositiveButton("Home",new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog,int id) {
-						// if this button is clicked, close
-						// current activity
 						GridActivity.this.finish();
 					}
 				})
-				.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+				.setNegativeButton("Play Again!",new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog,int id) {
-						// if this button is clicked, just close
-						// the dialog box and do nothing
-						dialog.cancel();
+						Intent intent = getIntent();
+						finish();
+						startActivity(intent);
 					}
 				});
 		 
@@ -134,7 +131,7 @@ public class GridActivity extends Activity implements OnClickListener{
 					AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 			 
 					// set title
-					alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+" !!!!");
+					alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+"!");
 			 
 					// set dialog message
 					alertDialogBuilder
@@ -142,16 +139,14 @@ public class GridActivity extends Activity implements OnClickListener{
 					.setCancelable(false)
 					.setPositiveButton("Home",new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog,int id) {
-							// if this button is clicked, close
-							// current activity
 							GridActivity.this.finish();
 						}
 					})
-					.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+					.setNegativeButton("Play Again!",new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog,int id) {
-							// if this button is clicked, just close
-							// the dialog box and do nothing
-							dialog.cancel();
+							Intent intent = getIntent();
+							finish();
+							startActivity(intent);
 						}
 					});
 			 
