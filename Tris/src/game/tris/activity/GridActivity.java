@@ -7,6 +7,8 @@ import game.tris.utility.Grid;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Point;
 import android.view.Menu;
 import android.view.View;
@@ -42,15 +44,83 @@ public class GridActivity extends Activity implements OnClickListener{
 				;//((ImageButton)v).setImageResource(R.drawable.o);
 			if(game.isfinish()){
 				disable();
-				Toast toast = Toast.makeText(this, "Good job player "
-													+Integer.toString(game.getPlayer())
-													+" !!!!",Toast.LENGTH_LONG);
-				toast.show();
+				
+				//####### TEST DIALOG ######
+				
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		 
+				// set title
+				alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+" !!!!");
+		 
+				// set dialog message
+				alertDialogBuilder
+				.setMessage("Select a option below")
+				.setCancelable(false)
+				.setPositiveButton("Home",new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int id) {
+						// if this button is clicked, close
+						// current activity
+						GridActivity.this.finish();
+					}
+				})
+				.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int id) {
+						// if this button is clicked, just close
+						// the dialog box and do nothing
+						dialog.cancel();
+					}
+				});
+		 
+				// create alert dialog
+				AlertDialog alertDialog = alertDialogBuilder.create();
+		 
+				// show it
+				alertDialog.show();
+			
+				//####### TEST DIALOG ######
+				
+				//Toast toast = Toast.makeText(this, "Good job player "+Integer.toString(game.getPlayer())+" !!!!",Toast.LENGTH_LONG);
+				//toast.show();
 			}
 			else if(game.getTurn()>=9){
 				disable();
-				Toast toast = Toast.makeText(this, R.string.noonewins,Toast.LENGTH_LONG);
-				toast.show();
+				
+				//####### TEST DIALOG ######
+				
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		 
+				// set title
+				alertDialogBuilder.setTitle("No one win!");
+		 
+				// set dialog message
+				alertDialogBuilder
+				.setMessage("Select a option below")
+				.setCancelable(false)
+				.setPositiveButton("Home",new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int id) {
+						// if this button is clicked, close
+						// current activity
+						GridActivity.this.finish();
+					}
+				})
+				.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int id) {
+						// if this button is clicked, just close
+						// the dialog box and do nothing
+						dialog.cancel();
+					}
+				});
+		 
+				// create alert dialog
+				AlertDialog alertDialog = alertDialogBuilder.create();
+		 
+				// show it
+				alertDialog.show();
+			
+				//####### TEST DIALOG ######
+				
+				//Toast toast = Toast.makeText(this, R.string.noonewins,Toast.LENGTH_LONG);
+				//toast.show();
 			}else{
 				game.changePlayer();
 				//for IA--------------------------------
@@ -58,10 +128,43 @@ public class GridActivity extends Activity implements OnClickListener{
 					IA(R.drawable.o);
 				if(game.isfinish()){
 					disable();
-					Toast toast = Toast.makeText(this, "Good job player "
-														+Integer.toString(game.getPlayer())
-														+" !!!!",Toast.LENGTH_LONG);
-					toast.show();
+					
+					//####### TEST DIALOG ######
+					
+					AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+			 
+					// set title
+					alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+" !!!!");
+			 
+					// set dialog message
+					alertDialogBuilder
+					.setMessage("Select a option below")
+					.setCancelable(false)
+					.setPositiveButton("Home",new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,int id) {
+							// if this button is clicked, close
+							// current activity
+							GridActivity.this.finish();
+						}
+					})
+					.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,int id) {
+							// if this button is clicked, just close
+							// the dialog box and do nothing
+							dialog.cancel();
+						}
+					});
+			 
+					// create alert dialog
+					AlertDialog alertDialog = alertDialogBuilder.create();
+			 
+					// show it
+					alertDialog.show();
+				
+					//####### TEST DIALOG ######
+					
+					//Toast toast = Toast.makeText(this, "Good job player "+Integer.toString(game.getPlayer())+" !!!!",Toast.LENGTH_LONG);
+					//toast.show();
 				}
 				else
 					game.changePlayer();
