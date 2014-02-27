@@ -4,16 +4,23 @@
     <string name="app_name">Tris</string>
     <string name="action_settings">Settings</string>
     <string name="todo">Welcome to Tris Game, select your game and have fun!</string>
-    <string name="title_activity_grid">GridActivity</string>
+    
+    
     <string name="startGame1vIA">Play vs IA!</string>
-    <string name="alreadysign">Already sign!</string>
-    <string name="noonewins">Two good or two noob players?</string>
     <string name="startGame1v1">Play 1 vs 1!</string>
     <string name="settingsButton">Settings</string>
+    
+    <string name="alreadysign">Already sign!</string>
+    <string name="noonewins">Two good or two noob players?</string>
+    
+    <string name="title_activity_grid">GridActivity</string>
     <string name="title_activity_splash">SplashActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    
+    <string name="settingsText1">Enable or disable sound:</string>
+    <string name="settingsText2">Select game difficulty:</string>
     <string name="website">www.wildstonestudio.altervista.org</string>
     
-
+    
+    
 </resources>

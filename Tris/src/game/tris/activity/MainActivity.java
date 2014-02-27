@@ -1,9 +1,17 @@
 package game.tris.activity;
 
+import game.tris.utility.AudioPlay;
+
+import java.util.List;
+
 import com.example.tris.R;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningTaskInfo;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -11,6 +19,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener, OnTouchListener{
 
@@ -18,6 +27,9 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        AudioPlay.playAudio(MainActivity.this, R.raw.get_lucky);
+        
         Button startGame1vIA = (Button)findViewById(R.id.startGame1vIA);
         startGame1vIA.setOnClickListener(this);
         Button startGame1v1 = (Button)findViewById(R.id.startGame1v1);
@@ -67,5 +79,28 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 		}
 		return false;
 	}
+	
+	
+	@Override
+	  protected void onPause() {
+	    if (this.isFinishing()){ //basically BACK was pressed from this activity
+	    	AudioPlay.stopAudio();
+	    	Toast.makeText(MainActivity.this, "YOU PRESSED BACK FROM YOUR 'HOME/MAIN' ACTIVITY", Toast.LENGTH_SHORT).show();
+	    }
+	    Context context = getApplicationContext();
+	    ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+	    List<RunningTaskInfo> taskInfo = am.getRunningTasks(1);
+	    if (!taskInfo.isEmpty()) {
+	      ComponentName topActivity = taskInfo.get(0).topActivity; 
+	      if (!topActivity.getPackageName().equals(context.getPackageName())) {
+	    	AudioPlay.stopAudio();
+	        Toast.makeText(MainActivity.this, "YOU LEFT YOUR APP", Toast.LENGTH_SHORT).show();
+	      }
+	      else {
+	        Toast.makeText(MainActivity.this, "YOU SWITCHED ACTIVITIES WITHIN YOUR APP", Toast.LENGTH_SHORT).show();
+	      }
+	    }
+	    super.onPause();
+	  }
     
 }

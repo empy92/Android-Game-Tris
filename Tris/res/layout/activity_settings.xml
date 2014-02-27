@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -9,76 +9,89 @@
     tools:context=".SettingsActivity" >
 
     <TextView
-        android:id="@+id/link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
-        android:text="@string/website" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/link"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher" />
-
-    <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="45dp"
-        android:text="Enable or disable sound:" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:text="@string/settingsText1" />
 
-    <ToggleButton
-        android:id="@+id/toggleButton1"
+    <RadioGroup
+        android:id="@+id/radioGroup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="ToggleButton" />
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:id="@+id/soundOn"
+            android:layout_width="82dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="On" />
+
+        <RadioButton
+            android:id="@+id/soundOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Off" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/link"
-        android:layout_below="@+id/toggleButton1"
-        android:layout_marginTop="33dp"
-        android:text="Select game difficulty:" />
+        android:layout_below="@+id/radioGroup2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="@string/settingsText2" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp" >
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true" >
 
         <RadioButton
-            android:id="@+id/radio0"
+            android:id="@+id/diffEasy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Easy" />
 
         <RadioButton
-            android:id="@+id/radio1"
+            android:id="@+id/diffMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Medium" />
 
         <RadioButton
-            android:id="@+id/radio2"
+            android:id="@+id/diffHard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hard" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="dp"
+        android:text="@string/website" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/link"
+        android:layout_marginLeft="0dp"
+        android:src="@drawable/ic_launcher" />
 
 </RelativeLayout>

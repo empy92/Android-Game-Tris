@@ -1,13 +1,21 @@
 package game.tris.activity;
 
+import java.util.List;
+
 import com.example.tris.R;
 
+import game.tris.utility.AudioPlay;
 import game.tris.utility.Game;
 import game.tris.utility.Grid;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.app.ActivityManager.RunningTaskInfo;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
@@ -19,6 +27,7 @@ import android.widget.Toast;
 
 public class GridActivity extends Activity implements OnClickListener{
 
+	 MediaPlayer mp;
 	private Game game;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -282,4 +291,20 @@ public class GridActivity extends Activity implements OnClickListener{
 		else
 			((ImageButton) v).setImageResource(R.drawable.o);
 	}
+	
+	@Override
+	 protected void onPause() {
+		super.onPause();
+	    Context context = getApplicationContext();
+	    ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+	    List<RunningTaskInfo> taskInfo = am.getRunningTasks(1);
+	    if (!taskInfo.isEmpty()) {
+	      ComponentName topActivity = taskInfo.get(0).topActivity; 
+	      if (!topActivity.getPackageName().equals(context.getPackageName())) {
+	    	 AudioPlay.stopAudio();
+	        Toast.makeText(GridActivity.this, "YOU LEFT YOUR APP", Toast.LENGTH_SHORT).show();
+	      }
+	    }
+	  }
+	
 }
