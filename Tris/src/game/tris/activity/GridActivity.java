@@ -1,21 +1,14 @@
 package game.tris.activity;
 
-import java.util.List;
 
 import com.example.tris.R;
-
 import game.tris.utility.AudioPlay;
 import game.tris.utility.Game;
 import game.tris.utility.Grid;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.app.ActivityManager.RunningTaskInfo;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
@@ -47,6 +40,10 @@ public class GridActivity extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		Point p = getPoint(v);
+		
+		//audio per premuta bottone
+		AudioPlay.playAudioNoLoop(GridActivity.this, R.raw.buttonpress);
+
 		if(game.mark(p.x, p.y)){
 			if(game.getPlayer() == 1)
 				display(v, game.getPlayer());
@@ -294,17 +291,16 @@ public class GridActivity extends Activity implements OnClickListener{
 	
 	@Override
 	 protected void onPause() {
-		super.onPause();
-	    Context context = getApplicationContext();
-	    ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-	    List<RunningTaskInfo> taskInfo = am.getRunningTasks(1);
-	    if (!taskInfo.isEmpty()) {
-	      ComponentName topActivity = taskInfo.get(0).topActivity; 
-	      if (!topActivity.getPackageName().equals(context.getPackageName())) {
-	    	 AudioPlay.stopAudio();
+		
+		if (this.isFinishing()){
+	   
+	    	Toast.makeText(GridActivity.this, "YOU PRESSED BACK FROM YOUR 'HOME/MAIN' ACTIVITY", Toast.LENGTH_SHORT).show();
+	    }else{
+			AudioPlay.stopAudio();
 	        Toast.makeText(GridActivity.this, "YOU LEFT YOUR APP", Toast.LENGTH_SHORT).show();
-	      }
 	    }
+		super.onPause();
+
 	  }
 	
 }

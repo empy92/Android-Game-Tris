@@ -1,11 +1,9 @@
 package game.tris.activity;
 
-import game.tris.utility.AudioPlay;
-
 import java.util.List;
 
+import game.tris.utility.AudioPlay;
 import com.example.tris.R;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -28,6 +26,7 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        //faccio partire la musica all'avvio dell' activity
         AudioPlay.playAudio(MainActivity.this, R.raw.get_lucky);
         
         Button startGame1vIA = (Button)findViewById(R.id.startGame1vIA);
@@ -83,7 +82,18 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	
 	@Override
 	  protected void onPause() {
-	    if (this.isFinishing()){ //basically BACK was pressed from this activity
+		
+		//il primo if è quando premo il pulsante BACK
+	    if (!this.isFinishing()){
+	    	Toast.makeText(MainActivity.this, "IS NOT FINISH", Toast.LENGTH_SHORT).show();
+	    }
+	    
+	    AudioPlay.stopAudio();
+    	Toast.makeText(MainActivity.this, "YOU PRESSED BACK FROM YOUR 'HOME/MAIN' ACTIVITY", Toast.LENGTH_SHORT).show();
+	    
+    	
+    	/*	#####FASE DI CONTROLLO#####  
+    	if (this.isFinishing()){ //basically BACK was pressed from this activity
 	    	AudioPlay.stopAudio();
 	    	Toast.makeText(MainActivity.this, "YOU PRESSED BACK FROM YOUR 'HOME/MAIN' ACTIVITY", Toast.LENGTH_SHORT).show();
 	    }
@@ -101,6 +111,10 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	      }
 	    }
 	    super.onPause();
+    	 */
+    	
+	    super.onPause();  
 	  }
+	  
     
 }

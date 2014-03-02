@@ -1,5 +1,7 @@
 package game.tris.activity;
  
+import game.tris.utility.AudioPlay;
+
 import com.example.tris.R;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +17,8 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
- 
+        
+        AudioPlay.playAudio(SplashActivity.this, R.raw.hammer);
         new Handler().postDelayed(new Runnable() {
  
             /*
@@ -34,6 +37,12 @@ public class SplashActivity extends Activity {
                 finish();
             }
         }, SPLASH_TIME_OUT);
+    }
+    
+    
+    protected void onPause(){
+    	AudioPlay.stopAudio();
+    	super.onPause();  
     }
  
 }

@@ -27,7 +27,8 @@ public final class R {
         public static final int x=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f090019;
+        public static final int LinearLayout1=0x7f090018;
+        public static final int action_settings=0x7f09001a;
         public static final int b00=0x7f090000;
         public static final int b01=0x7f090001;
         public static final int b02=0x7f090002;
@@ -41,7 +42,7 @@ public final class R {
         public static final int diffHard=0x7f090015;
         public static final int diffMedium=0x7f090014;
         public static final int imageView1=0x7f090017;
-        public static final int imgLogo=0x7f090018;
+        public static final int imgLogo=0x7f090019;
         public static final int link=0x7f090016;
         public static final int radioGroup1=0x7f090012;
         public static final int radioGroup2=0x7f09000e;
@@ -67,12 +68,15 @@ public final class R {
         public static final int splash=0x7f080003;
     }
     public static final class raw {
-        public static final int get_lucky=0x7f040000;
+        public static final int buttonpress=0x7f040000;
+        public static final int get_lucky=0x7f040001;
+        public static final int hammer=0x7f040002;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int alreadysign=0x7f060006;
         public static final int app_name=0x7f060000;
+        public static final int company=0x7f06000e;
         public static final int noonewins=0x7f060007;
         public static final int settingsButton=0x7f060005;
         public static final int settingsText1=0x7f06000b;
