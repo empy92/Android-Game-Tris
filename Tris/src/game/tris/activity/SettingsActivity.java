@@ -28,7 +28,7 @@ public class SettingsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
 		
-		// bottone che mi collega al sito di wild stone studio
+		// imageview che mi collega al sito di wild stone studio
 		ImageView linksito = (ImageView)findViewById(R.id.imageView1);
 	        linksito.setOnClickListener(new OnClickListener() {
 	        	@Override
@@ -50,11 +50,9 @@ public class SettingsActivity extends Activity {
 	@Override
 	 protected void onPause() {
 		
-		if (this.isFinishing()){
-			   
+		if (this.isFinishing()){			   
 	    	Toast.makeText(SettingsActivity.this, "YOU PRESSED BACK FROM YOUR 'HOME/MAIN' ACTIVITY", Toast.LENGTH_SHORT).show();
-	    }else{
-		
+	    }else{	
 			AudioPlay.stopAudio();
 	        Toast.makeText(SettingsActivity.this, "YOU LEFT YOUR APP", Toast.LENGTH_SHORT).show();
 	    }

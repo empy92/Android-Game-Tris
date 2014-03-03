@@ -41,7 +41,7 @@ public class GridActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		Point p = getPoint(v);
 		
-		//audio per premuta bottone
+		//sound when button is pressed
 		AudioPlay.playAudioNoLoop(GridActivity.this, R.raw.buttonpress);
 
 		if(game.mark(p.x, p.y)){
@@ -293,14 +293,14 @@ public class GridActivity extends Activity implements OnClickListener{
 	 protected void onPause() {
 		
 		if (this.isFinishing()){
-	   
+			// si è premuto il tasto BACK del dispositivo
 	    	Toast.makeText(GridActivity.this, "YOU PRESSED BACK FROM YOUR 'HOME/MAIN' ACTIVITY", Toast.LENGTH_SHORT).show();
 	    }else{
+	    	//l'activity è passata allo stato pause per un altro motivo rispetto alla premuto del tasto BACK
 			AudioPlay.stopAudio();
 	        Toast.makeText(GridActivity.this, "YOU LEFT YOUR APP", Toast.LENGTH_SHORT).show();
 	    }
 		super.onPause();
 
-	  }
-	
+	  }	
 }

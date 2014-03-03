@@ -30,8 +30,20 @@ public class AudioPlay {
         }          
     }
     
+    // stop sound
     public static void stopAudio(){     
          isplayingAudio=false;       
          mediaPlayer.stop();
     }   
+    
+    // release audio
+    public static void releaseAudio(){     
+        isplayingAudio=false;       
+        mediaPlayer.release();
+   }
+    
+    // check if music play or not
+    public static boolean isPlayingAudio(){     
+        return isplayingAudio;       
+   }   
 }

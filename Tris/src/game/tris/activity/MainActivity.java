@@ -7,9 +7,11 @@ import com.example.tris.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -26,7 +28,7 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        //faccio partire la musica all'avvio dell' activity
+        //faccio partire la musica di background all'avvio dell' activity
         AudioPlay.playAudio(MainActivity.this, R.raw.get_lucky);
         
         Button startGame1vIA = (Button)findViewById(R.id.startGame1vIA);
@@ -84,12 +86,12 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	  protected void onPause() {
 		
 		//il primo if è quando premo il pulsante BACK
-	    if (!this.isFinishing()){
-	    	Toast.makeText(MainActivity.this, "IS NOT FINISH", Toast.LENGTH_SHORT).show();
+	    if (this.isFinishing()){
+	    	Toast.makeText(MainActivity.this, "BACK PRESSED and STOP MUSIC", Toast.LENGTH_SHORT).show();
+	    	AudioPlay.stopAudio();	    
 	    }
 	    
-	    AudioPlay.stopAudio();
-    	Toast.makeText(MainActivity.this, "YOU PRESSED BACK FROM YOUR 'HOME/MAIN' ACTIVITY", Toast.LENGTH_SHORT).show();
+	    //!!!!! DA IMPLEMENTARE LO STOP DELLA MUSICA QUANDO PREMO TASTO HOME O BLOCCO LO SCHERMO
 	    
     	
     	/*	#####FASE DI CONTROLLO#####  
@@ -111,10 +113,41 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	      }
 	    }
 	    super.onPause();
-    	 */
+    	################################ */
     	
 	    super.onPause();  
 	  }
+	
+	
+	protected void onDestroy(){
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		 
+		// set title
+		alertDialogBuilder.setTitle("Do you want leave?");
+ 
+		// set dialog message
+		alertDialogBuilder
+		.setMessage("Select a option below")
+		.setCancelable(false)
+		.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog,int id) {
+				MainActivity.this.finish();
+			}
+		})
+		.setNegativeButton("No",new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog,int id) {
+				dialog.cancel(); 
+			}
+		});
+				
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+ 
+		// show it
+		alertDialog.show();
+		
+		super.onDestroy();
+	}
 	  
     
 }
