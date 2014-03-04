@@ -21,10 +21,20 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int logo01=0x7f020001;
-        public static final int o=0x7f020002;
-        public static final int x=0x7f020003;
+        public static final int background=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int logo01=0x7f020002;
+        public static final int mp=0x7f020003;
+        public static final int mp_press=0x7f020004;
+        public static final int mp_selector=0x7f020005;
+        public static final int ng=0x7f020006;
+        public static final int ng_press=0x7f020007;
+        public static final int ng_selector=0x7f020008;
+        public static final int o=0x7f020009;
+        public static final int set=0x7f02000a;
+        public static final int set_press=0x7f02000b;
+        public static final int set_selector=0x7f02000c;
+        public static final int x=0x7f02000d;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f090018;
@@ -46,14 +56,14 @@ public final class R {
         public static final int link=0x7f090016;
         public static final int radioGroup1=0x7f090012;
         public static final int radioGroup2=0x7f09000e;
-        public static final int settingsButton=0x7f09000c;
+        public static final int settings=0x7f09000c;
         public static final int soundOff=0x7f090010;
         public static final int soundOn=0x7f09000f;
+        public static final int space=0x7f090009;
         public static final int startGame1v1=0x7f09000b;
         public static final int startGame1vIA=0x7f09000a;
         public static final int textView1=0x7f09000d;
         public static final int textView2=0x7f090011;
-        public static final int todo=0x7f090009;
     }
     public static final class layout {
         public static final int activity_grid=0x7f030000;

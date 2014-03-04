@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener, OnTouchListener{
@@ -31,14 +32,14 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
         //faccio partire la musica di background all'avvio dell' activity
         AudioPlay.playAudio(MainActivity.this, R.raw.get_lucky);
         
-        Button startGame1vIA = (Button)findViewById(R.id.startGame1vIA);
+        ImageView startGame1vIA = (ImageView)findViewById(R.id.startGame1vIA);
         startGame1vIA.setOnClickListener(this);
-        Button startGame1v1 = (Button)findViewById(R.id.startGame1v1);
+        ImageView startGame1v1 = (ImageView)findViewById(R.id.startGame1v1);
         startGame1v1.setOnClickListener(this);
-        Button settingsButton = (Button)findViewById(R.id.settingsButton);
+        ImageView settingsButton = (ImageView)findViewById(R.id.settings);
         settingsButton.setOnClickListener(this);
         
-        findViewById(R.id.settingsButton).setOnTouchListener(this);
+        findViewById(R.id.settings).setOnTouchListener(this);
         findViewById(R.id.startGame1v1).setOnTouchListener(this);
         findViewById(R.id.startGame1vIA).setOnTouchListener(this);
     }
@@ -57,7 +58,7 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 		if(v.getId() == R.id.startGame1vIA){
 			Intent intent = new Intent(this,GridActivity.class);
 			startActivity(intent);
-		}else if(v.getId() == R.id.settingsButton){
+		}else if(v.getId() == R.id.settings){
 			Intent intent = new Intent(this,SettingsActivity.class);
 			startActivity(intent);
 		}
@@ -66,17 +67,17 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 
 	@Override
 	public boolean onTouch(View arg0, MotionEvent arg1) {
-		if(arg0.getId() == R.id.settingsButton){
+		if(arg0.getId() == R.id.settings){
 			findViewById(R.id.startGame1vIA).setPressed(false);
 			findViewById(R.id.startGame1v1).setPressed(false);
 		}
 		else if(arg0.getId() == R.id.startGame1vIA){
-			findViewById(R.id.settingsButton).setPressed(false);
+			findViewById(R.id.settings).setPressed(false);
 			findViewById(R.id.startGame1v1).setPressed(false);
 		}
 		else if(arg0.getId() == R.id.startGame1v1){
 			findViewById(R.id.startGame1vIA).setPressed(false);
-			findViewById(R.id.settingsButton).setPressed(false);
+			findViewById(R.id.settings).setPressed(false);
 		}
 		return false;
 	}
@@ -85,7 +86,7 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	@Override
 	  protected void onPause() {
 		
-		//il primo if è quando premo il pulsante BACK
+		//il primo if ÔøΩ quando premo il pulsante BACK
 	    if (this.isFinishing()){
 	    	Toast.makeText(MainActivity.this, "BACK PRESSED and STOP MUSIC", Toast.LENGTH_SHORT).show();
 	    	AudioPlay.stopAudio();	    
