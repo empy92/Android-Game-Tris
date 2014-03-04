@@ -7,6 +7,7 @@ import java.util.List;
 import com.example.tris.R;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
@@ -28,6 +29,8 @@ public class SettingsActivity extends Activity {
 	private RadioGroup radioGroupSound;
 	private RadioGroup radioGroupDiff;
 	SharedPreferences sharedpreferences;
+	private static Integer indexDefaultSound = 0;
+	private static Integer indexDefaultDiff = 0;
 	public static final String MyPREFERENCES = "MyPrefs" ;
 	public static final String Sound = "soundKey"; 
 	public static final String Difficulty = "diffKey";
@@ -36,23 +39,12 @@ public class SettingsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
-	
+			
 		getRadio();
+
 		Toast.makeText(SettingsActivity.this,"Audio: "+sharedpreferences.getString(Sound, ""), Toast.LENGTH_SHORT).show();
-		Toast.makeText(SettingsActivity.this,"Difficulty: "+sharedpreferences.getString(Difficulty, ""), Toast.LENGTH_SHORT).show();
+		Toast.makeText(SettingsActivity.this,"Difficulty: "+sharedpreferences.getString(Difficulty, ""), Toast.LENGTH_SHORT).show();	
 		
-		
-		/* TO CHECK!!!!!!! (per ora non serve)
-		if(radioGroupSound.getCheckedRadioButtonId()!=-1){
-            int id1= radioGroupSound.getCheckedRadioButtonId();
-            View radioButton = radioGroupSound.findViewById(id1);
-            int radioId1 = radioGroupSound.indexOfChild(radioButton);
-            RadioButton btn1 = (RadioButton) radioGroupSound.getChildAt(radioId1);
-            
-            String selection1 = (String) btn1.getText();
-            Toast.makeText(SettingsActivity.this, ""+selection1+" id: "+id1+" radioId: "+radioId1, Toast.LENGTH_SHORT).show();
-		}
-		*/
 		
 		// imageview che mi collega al sito di wild stone studio
 		ImageView linksito = (ImageView)findViewById(R.id.imageView1);
@@ -78,16 +70,48 @@ public class SettingsActivity extends Activity {
 		radioGroupSound = (RadioGroup) findViewById(R.id.radioGroup2);
 		radioGroupDiff = (RadioGroup) findViewById(R.id.radioGroup1);
 			
-		sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);	
+		sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+		final Editor editor = sharedpreferences.edit();
+		
+		
+		if(indexDefaultSound == 0){
+			if(radioGroupSound.getCheckedRadioButtonId()!=-1){
+	            int id1= radioGroupSound.getCheckedRadioButtonId();
+	            View radioButton1 = radioGroupSound.findViewById(id1);
+	            int radioId1 = radioGroupSound.indexOfChild(radioButton1);
+	            RadioButton btn1 = (RadioButton) radioGroupSound.getChildAt(radioId1);
+	          
+	            if(btn1.getText().equals("On")){   
+	                editor.putString(Sound, "0");
+	                editor.commit();
+	            }
+			}
+			indexDefaultSound++;
+		}
+		
+		if(indexDefaultDiff == 0){
+			if(radioGroupDiff.getCheckedRadioButtonId()!=-1){
+	            int id2= radioGroupDiff.getCheckedRadioButtonId();
+	            View radioButton2 = radioGroupDiff.findViewById(id2);
+	            int radioId2 = radioGroupDiff.indexOfChild(radioButton2);
+	            RadioButton btn2 = (RadioButton) radioGroupDiff.getChildAt(radioId2);
+	          
+	            if(btn2.getText().equals("Easy")){   
+	                editor.putString(Difficulty, "0");
+	                editor.commit();
+	            }
+			}
+			indexDefaultDiff++;
+		}
+		
 		
 		 OnClickListener listener = new OnClickListener() {
 	            @Override
 	            public void onClick(View v) {
 	                   RadioButton rb = (RadioButton) v;
 	                   Toast.makeText(SettingsActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();
-	                   
-	                   Editor editor = sharedpreferences.edit();
-	                   
+	                    
+	                             
 	                   if(rb.getText().equals("On")){   
 		                   editor.putString(Sound, "0");
 	                   }else if(rb.getText().equals("Off")){           	
