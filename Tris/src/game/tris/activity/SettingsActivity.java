@@ -26,14 +26,18 @@ import android.widget.Toast;
 
 public class SettingsActivity extends Activity {
 
+	private RadioGroup radioGroupSound;
+	private RadioGroup radioGroupDiff;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
 		
-		final RadioGroup radioGroupSound = (RadioGroup) findViewById(R.id.radioGroup2);
-		final RadioGroup radioGroupDiff = (RadioGroup) findViewById(R.id.radioGroup1);
+		radioGroupSound = (RadioGroup) findViewById(R.id.radioGroup2);
+		radioGroupDiff = (RadioGroup) findViewById(R.id.radioGroup1);
+
 		
+		/*
 		if(radioGroupSound.getCheckedRadioButtonId()!=-1){
             int id1= radioGroupSound.getCheckedRadioButtonId();
             View radioButton = radioGroupSound.findViewById(id1);
@@ -43,16 +47,29 @@ public class SettingsActivity extends Activity {
             String selection1 = (String) btn1.getText();
             Toast.makeText(SettingsActivity.this, ""+selection1+" id: "+id1+" radioId: "+radioId1, Toast.LENGTH_SHORT).show();
 		}
-		
-		if(radioGroupDiff.getCheckedRadioButtonId()!=-1){
-            int id2= radioGroupDiff.getCheckedRadioButtonId();
-            View radioButton = radioGroupDiff.findViewById(id2);
-            int radioId2 = radioGroupDiff.indexOfChild(radioButton);
-            RadioButton btn2 = (RadioButton) radioGroupDiff.getChildAt(radioId2);
-            
-            String selection2 = (String) btn2.getText();
-            Toast.makeText(SettingsActivity.this, ""+selection2+" id: "+id2+" radioId: "+radioId2, Toast.LENGTH_SHORT).show();
-		}
+		*/
+
+       OnClickListener listener = new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                   RadioButton rb = (RadioButton) v;
+                   Toast.makeText(SettingsActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();
+            }
+      };
+
+      //this are radio buttons for sound
+      RadioButton rbOn = (RadioButton) findViewById(R.id.soundOn);
+      rbOn.setOnClickListener(listener);
+      RadioButton rbOff = (RadioButton) findViewById(R.id.soundOff);
+      rbOff.setOnClickListener(listener);
+      
+      //this are radio buttons for difficulty
+      RadioButton rbEasy = (RadioButton) findViewById(R.id.diffEasy);
+      rbEasy.setOnClickListener(listener);
+      RadioButton rbMedium = (RadioButton) findViewById(R.id.diffMedium);
+      rbMedium.setOnClickListener(listener);
+      RadioButton rbHard = (RadioButton) findViewById(R.id.diffHard);
+      rbHard.setOnClickListener(listener);
 		
 		
 		// imageview che mi collega al sito di wild stone studio
@@ -81,8 +98,7 @@ public class SettingsActivity extends Activity {
 			// do nothing
 	    }else{	
 			AudioPlay.stopAudio();
-	    }
-	    
+	    }    
 	    super.onPause();
 	  }
 	
