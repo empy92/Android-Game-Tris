@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 public class GridActivity extends Activity implements OnClickListener{
 
-	 MediaPlayer mp;
+	MediaPlayer mp;
 	private Game game;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +48,13 @@ public class GridActivity extends Activity implements OnClickListener{
 			if(game.getPlayer() == 1)
 				display(v, game.getPlayer());
 			else
-				;//((ImageButton)v).setImageResource(R.drawable.o);
+				;
 			if(game.isfinish()){
 				disable();
 				
 				//####### TEST DIALOG ######
 				
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		 
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);	 
 				// set title
 				alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+"!");
 		 
@@ -78,14 +77,10 @@ public class GridActivity extends Activity implements OnClickListener{
 		 
 				// create alert dialog
 				AlertDialog alertDialog = alertDialogBuilder.create();
-		 
 				// show it
 				alertDialog.show();
 			
 				//####### TEST DIALOG ######
-				
-				//Toast toast = Toast.makeText(this, "Good job player "+Integer.toString(game.getPlayer())+" !!!!",Toast.LENGTH_LONG);
-				//toast.show();
 			}
 			else if(game.getTurn()>=9){
 				disable();
@@ -93,7 +88,6 @@ public class GridActivity extends Activity implements OnClickListener{
 				//####### TEST DIALOG ######
 				
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		 
 				// set title
 				alertDialogBuilder.setTitle("No one win!");
 		 
@@ -115,15 +109,11 @@ public class GridActivity extends Activity implements OnClickListener{
 				});
 		 
 				// create alert dialog
-				AlertDialog alertDialog = alertDialogBuilder.create();
-		 
+				AlertDialog alertDialog = alertDialogBuilder.create(); 
 				// show it
 				alertDialog.show();
 			
 				//####### TEST DIALOG ######
-				
-				//Toast toast = Toast.makeText(this, R.string.noonewins,Toast.LENGTH_LONG);
-				//toast.show();
 			}else{
 				game.changePlayer();
 				//for IA--------------------------------
@@ -134,8 +124,7 @@ public class GridActivity extends Activity implements OnClickListener{
 					
 					//####### TEST DIALOG ######
 					
-					AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-			 
+					AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);		 
 					// set title
 					alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+"!");
 			 
@@ -158,14 +147,10 @@ public class GridActivity extends Activity implements OnClickListener{
 			 
 					// create alert dialog
 					AlertDialog alertDialog = alertDialogBuilder.create();
-			 
 					// show it
 					alertDialog.show();
 				
-					//####### TEST DIALOG ######
-					
-					//Toast toast = Toast.makeText(this, "Good job player "+Integer.toString(game.getPlayer())+" !!!!",Toast.LENGTH_LONG);
-					//toast.show();
+					//####### TEST DIALOG ######				
 				}
 				else
 					game.changePlayer();
@@ -293,14 +278,11 @@ public class GridActivity extends Activity implements OnClickListener{
 	 protected void onPause() {
 		
 		if (this.isFinishing()){
-			// si è premuto il tasto BACK del dispositivo
-	    	Toast.makeText(GridActivity.this, "YOU PRESSED BACK FROM YOUR 'HOME/MAIN' ACTIVITY", Toast.LENGTH_SHORT).show();
+			// si è premuto il tasto BACK del dispositivo e non succede nulla    	
 	    }else{
 	    	//l'activity è passata allo stato pause per un altro motivo rispetto alla premuto del tasto BACK
-			AudioPlay.stopAudio();
-	        Toast.makeText(GridActivity.this, "YOU LEFT YOUR APP", Toast.LENGTH_SHORT).show();
+			AudioPlay.stopAudio();     
 	    }
 		super.onPause();
-
-	  }	
+	  }
 }

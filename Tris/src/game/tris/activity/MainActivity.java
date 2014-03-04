@@ -117,37 +117,4 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
     	
 	    super.onPause();  
 	  }
-	
-	
-	protected void onDestroy(){
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		 
-		// set title
-		alertDialogBuilder.setTitle("Do you want leave?");
- 
-		// set dialog message
-		alertDialogBuilder
-		.setMessage("Select a option below")
-		.setCancelable(false)
-		.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog,int id) {
-				MainActivity.this.finish();
-			}
-		})
-		.setNegativeButton("No",new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog,int id) {
-				dialog.cancel(); 
-			}
-		});
-				
-		// create alert dialog
-		AlertDialog alertDialog = alertDialogBuilder.create();
- 
-		// show it
-		alertDialog.show();
-		
-		super.onDestroy();
-	}
-	  
-    
 }
