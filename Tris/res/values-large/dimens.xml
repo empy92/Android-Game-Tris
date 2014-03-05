@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="textSize">40sp</dimen>
+    <dimen name="textlink">28sp</dimen>
+</resources>
