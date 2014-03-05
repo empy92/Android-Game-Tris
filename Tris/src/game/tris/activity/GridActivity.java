@@ -15,7 +15,7 @@ import android.graphics.Point;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class GridActivity extends Activity implements OnClickListener{
@@ -163,23 +163,23 @@ public class GridActivity extends Activity implements OnClickListener{
 	}
 	
 	private void init(){
-		ImageButton b00 = (ImageButton) findViewById(R.id.b00);
+		ImageView b00 = (ImageView) findViewById(R.id.b00);
 		b00.setOnClickListener(this);
-		ImageButton b01 = (ImageButton) findViewById(R.id.b01);
+		ImageView b01 = (ImageView) findViewById(R.id.b01);
 		b01.setOnClickListener(this);
-		ImageButton b02 = (ImageButton) findViewById(R.id.b02);
+		ImageView b02 = (ImageView) findViewById(R.id.b02);
 		b02.setOnClickListener(this);
-		ImageButton b10 = (ImageButton) findViewById(R.id.b10);
+		ImageView b10 = (ImageView) findViewById(R.id.b10);
 		b10.setOnClickListener(this);
-		ImageButton b11 = (ImageButton) findViewById(R.id.b11);
+		ImageView b11 = (ImageView) findViewById(R.id.b11);
 		b11.setOnClickListener(this);
-		ImageButton b12 = (ImageButton) findViewById(R.id.b12);
+		ImageView b12 = (ImageView) findViewById(R.id.b12);
 		b12.setOnClickListener(this);
-		ImageButton b20 = (ImageButton) findViewById(R.id.b20);
+		ImageView b20 = (ImageView) findViewById(R.id.b20);
 		b20.setOnClickListener(this);
-		ImageButton b21 = (ImageButton) findViewById(R.id.b21);
+		ImageView b21 = (ImageView) findViewById(R.id.b21);
 		b21.setOnClickListener(this);
-		ImageButton b22 = (ImageButton) findViewById(R.id.b22);
+		ImageView b22 = (ImageView) findViewById(R.id.b22);
 		b22.setOnClickListener(this);
 	}
 	
@@ -224,63 +224,63 @@ public class GridActivity extends Activity implements OnClickListener{
 		return p;
 	}
 	private void disable(){
-		ImageButton b00 = (ImageButton) findViewById(R.id.b00);
+		ImageView b00 = (ImageView) findViewById(R.id.b00);
 		b00.setClickable(false);
-		ImageButton b01 = (ImageButton) findViewById(R.id.b01);
+		ImageView b01 = (ImageView) findViewById(R.id.b01);
 		b01.setClickable(false);
-		ImageButton b02 = (ImageButton) findViewById(R.id.b02);
+		ImageView b02 = (ImageView) findViewById(R.id.b02);
 		b02.setClickable(false);
-		ImageButton b10 = (ImageButton) findViewById(R.id.b10);
+		ImageView b10 = (ImageView) findViewById(R.id.b10);
 		b10.setClickable(false);
-		ImageButton b11 = (ImageButton) findViewById(R.id.b11);
+		ImageView b11 = (ImageView) findViewById(R.id.b11);
 		b11.setClickable(false);
-		ImageButton b12 = (ImageButton) findViewById(R.id.b12);
+		ImageView b12 = (ImageView) findViewById(R.id.b12);
 		b12.setClickable(false);
-		ImageButton b20 = (ImageButton) findViewById(R.id.b20);
+		ImageView b20 = (ImageView) findViewById(R.id.b20);
 		b20.setClickable(false);
-		ImageButton b21 = (ImageButton) findViewById(R.id.b21);
+		ImageView b21 = (ImageView) findViewById(R.id.b21);
 		b21.setClickable(false);
-		ImageButton b22 = (ImageButton) findViewById(R.id.b22);
+		ImageView b22 = (ImageView) findViewById(R.id.b22);
 		b22.setClickable(false);
 	}
 	
 	private void IA(int resId){
 		Point p = game.markIA();
 		if(p.x == 0 && p.y ==0)
-			((ImageButton) findViewById(R.id.b00)).setImageResource(resId);
+			((ImageView) findViewById(R.id.b00)).setImageResource(resId);
 		else if(p.x == 0 && p.y ==1)
-			((ImageButton) findViewById(R.id.b01)).setImageResource(resId);
+			((ImageView) findViewById(R.id.b01)).setImageResource(resId);
 		else if(p.x == 0 && p.y ==2)
-			((ImageButton) findViewById(R.id.b02)).setImageResource(resId);
+			((ImageView) findViewById(R.id.b02)).setImageResource(resId);
 		else if(p.x == 1 && p.y ==0)
-			((ImageButton) findViewById(R.id.b10)).setImageResource(resId);
+			((ImageView) findViewById(R.id.b10)).setImageResource(resId);
 		else if(p.x == 1 && p.y ==1)
-			((ImageButton) findViewById(R.id.b11)).setImageResource(resId);
+			((ImageView) findViewById(R.id.b11)).setImageResource(resId);
 		else if(p.x == 1 && p.y ==2)
-			((ImageButton) findViewById(R.id.b12)).setImageResource(resId);
+			((ImageView) findViewById(R.id.b12)).setImageResource(resId);
 		else if(p.x == 2 && p.y ==0)
-			((ImageButton) findViewById(R.id.b20)).setImageResource(resId);
+			((ImageView) findViewById(R.id.b20)).setImageResource(resId);
 		else if(p.x == 2 && p.y ==1)
-			((ImageButton) findViewById(R.id.b21)).setImageResource(resId);
+			((ImageView) findViewById(R.id.b21)).setImageResource(resId);
 		else if(p.x == 2 && p.y ==2)
-			((ImageButton) findViewById(R.id.b22)).setImageResource(resId);
+			((ImageView) findViewById(R.id.b22)).setImageResource(resId);
 	}
 	
 	
 	private void display(View v, int player){
 		if(player == Grid.X)
-			((ImageButton) v).setImageResource(R.drawable.x);
+			((ImageView) v).setImageResource(R.drawable.x);
 		else
-			((ImageButton) v).setImageResource(R.drawable.o);
+			((ImageView) v).setImageResource(R.drawable.o);
 	}
 	
 	@Override
 	 protected void onPause() {
 		
 		if (this.isFinishing()){
-			// si è premuto il tasto BACK del dispositivo e non succede nulla    	
+			// si ÔøΩ premuto il tasto BACK del dispositivo e non succede nulla    	
 	    }else{
-	    	//l'activity è passata allo stato pause per un altro motivo rispetto alla premuto del tasto BACK
+	    	//l'activity ÔøΩ passata allo stato pause per un altro motivo rispetto alla premuto del tasto BACK
 			AudioPlay.stopAudio();     
 	    }
 		super.onPause();
