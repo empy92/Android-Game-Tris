@@ -17,7 +17,7 @@
         android:layout_marginTop="17dp"
         android:gravity="center_horizontal"
         android:text="@string/app_name"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textSize="@dimen/textSize" />
 
     <TextView
         android:id="@+id/textView1"
@@ -26,7 +26,8 @@
         android:layout_marginBottom="17dp"
         android:gravity="center_horizontal"
         android:text="@string/company"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/textlink" />
 
     <ImageView
         android:id="@+id/imgLogo"

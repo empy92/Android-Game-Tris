@@ -12,13 +12,20 @@ public final class R {
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
+         */
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
+        /** 
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw600dp devices (e.g. 7" tablets) here.
+    
 
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int textSize=0x7f050002;
+        public static final int textlink=0x7f050003;
     }
     public static final class drawable {
         public static final int background=0x7f020000;
@@ -51,9 +58,9 @@ public final class R {
         public static final int diffEasy=0x7f090013;
         public static final int diffHard=0x7f090015;
         public static final int diffMedium=0x7f090014;
-        public static final int imageView1=0x7f090017;
+        public static final int imageView1=0x7f090016;
         public static final int imgLogo=0x7f090019;
-        public static final int link=0x7f090016;
+        public static final int link=0x7f090017;
         public static final int radioGroup1=0x7f090012;
         public static final int radioGroup2=0x7f09000e;
         public static final int settings=0x7f09000c;
