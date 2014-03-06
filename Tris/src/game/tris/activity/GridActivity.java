@@ -13,19 +13,24 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class GridActivity extends Activity implements OnClickListener{
+public class GridActivity extends Activity implements OnClickListener, OnTouchListener{
 
 	MediaPlayer mp;
 	private Game game;
+	int[] view;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_grid);
+		view = new int[9];
 		init();
 		game = new Game();
 	}
@@ -171,22 +176,40 @@ public class GridActivity extends Activity implements OnClickListener{
 	private void init(){
 		ImageView b00 = (ImageView) findViewById(R.id.b00);
 		b00.setOnClickListener(this);
+		b00.setOnTouchListener(this);
 		ImageView b01 = (ImageView) findViewById(R.id.b01);
 		b01.setOnClickListener(this);
+		b01.setOnTouchListener(this);
 		ImageView b02 = (ImageView) findViewById(R.id.b02);
 		b02.setOnClickListener(this);
+		b02.setOnTouchListener(this);
 		ImageView b10 = (ImageView) findViewById(R.id.b10);
 		b10.setOnClickListener(this);
+		b10.setOnTouchListener(this);
 		ImageView b11 = (ImageView) findViewById(R.id.b11);
 		b11.setOnClickListener(this);
+		b11.setOnTouchListener(this);
 		ImageView b12 = (ImageView) findViewById(R.id.b12);
 		b12.setOnClickListener(this);
+		b12.setOnTouchListener(this);
 		ImageView b20 = (ImageView) findViewById(R.id.b20);
 		b20.setOnClickListener(this);
+		b20.setOnTouchListener(this);
 		ImageView b21 = (ImageView) findViewById(R.id.b21);
 		b21.setOnClickListener(this);
+		b21.setOnTouchListener(this);
 		ImageView b22 = (ImageView) findViewById(R.id.b22);
 		b22.setOnClickListener(this);
+		b22.setOnTouchListener(this);
+		view[0] = R.id.b00;
+		view[1] = R.id.b01;
+		view[2] = R.id.b02;
+		view[3] = R.id.b10;
+		view[4] = R.id.b11;
+		view[5] = R.id.b12;
+		view[6] = R.id.b20;
+		view[7] = R.id.b21;
+		view[8] = R.id.b22;
 	}
 	
 	private Point getPoint(View v){
@@ -291,4 +314,17 @@ public class GridActivity extends Activity implements OnClickListener{
 	    }
 		super.onPause();
 	  }
+
+	@Override
+	public boolean onTouch(View arg0, MotionEvent event) {
+		onlyOne(arg0.getId());
+		return false;
+	}
+	
+	private void onlyOne(int id){
+		for(int i=0; i<8; i++){
+			if(view[i] != id)
+				findViewById(view[i]).setPressed(false);
+		}
+	}
 }

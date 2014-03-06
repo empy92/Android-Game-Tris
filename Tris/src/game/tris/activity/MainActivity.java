@@ -120,4 +120,8 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
     	
 	    super.onPause();  
 	  }
+	
+	private void onlyOne(int[] idView, int id){
+		
+	}
 }
