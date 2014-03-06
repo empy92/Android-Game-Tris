@@ -30,23 +30,24 @@ public final class R {
     public static final class drawable {
         public static final int background=0x7f020000;
         public static final int grid=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int logo01=0x7f020003;
-        public static final int mp=0x7f020004;
-        public static final int mp_press=0x7f020005;
-        public static final int mp_selector=0x7f020006;
-        public static final int ng=0x7f020007;
-        public static final int ng_press=0x7f020008;
-        public static final int ng_selector=0x7f020009;
-        public static final int o=0x7f02000a;
-        public static final int set=0x7f02000b;
-        public static final int set_press=0x7f02000c;
-        public static final int set_selector=0x7f02000d;
-        public static final int x=0x7f02000e;
+        public static final int grid_layer=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int logo01=0x7f020004;
+        public static final int mp=0x7f020005;
+        public static final int mp_press=0x7f020006;
+        public static final int mp_selector=0x7f020007;
+        public static final int ng=0x7f020008;
+        public static final int ng_press=0x7f020009;
+        public static final int ng_selector=0x7f02000a;
+        public static final int o=0x7f02000b;
+        public static final int set=0x7f02000c;
+        public static final int set_press=0x7f02000d;
+        public static final int set_selector=0x7f02000e;
+        public static final int x=0x7f02000f;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f090018;
-        public static final int action_settings=0x7f09001a;
+        public static final int action_settings=0x7f09001c;
         public static final int b00=0x7f090000;
         public static final int b01=0x7f090001;
         public static final int b02=0x7f090002;
@@ -56,9 +57,11 @@ public final class R {
         public static final int b20=0x7f090006;
         public static final int b21=0x7f090007;
         public static final int b22=0x7f090008;
+        public static final int background=0x7f09001a;
         public static final int diffEasy=0x7f090013;
         public static final int diffHard=0x7f090015;
         public static final int diffMedium=0x7f090014;
+        public static final int grid=0x7f09001b;
         public static final int imageView1=0x7f090016;
         public static final int imgLogo=0x7f090019;
         public static final int link=0x7f090017;
