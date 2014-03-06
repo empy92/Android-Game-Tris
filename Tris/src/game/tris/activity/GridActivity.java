@@ -322,7 +322,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	}
 	
 	private void onlyOne(int id){
-		for(int i=0; i<8; i++){
+		for(int i=0; i<9; i++){
 			if(view[i] != id)
 				findViewById(view[i]).setPressed(false);
 		}
