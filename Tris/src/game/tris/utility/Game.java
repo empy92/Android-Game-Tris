@@ -18,7 +18,7 @@ public class Game {
 		player = Grid.X;
 		turn = 0;
 		rand = new Random();
-		rand.setSeed(System.currentTimeMillis()/101);
+		rand.setSeed(System.currentTimeMillis());
 	}
 	
 	public void changePlayer(){
