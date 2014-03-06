@@ -32,7 +32,7 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
         setContentView(R.layout.activity_main);
         
         //faccio partire la musica di background all'avvio dell' activity
-        AudioPlay.playAudio(MainActivity.this, R.raw.get_lucky);
+        AudioPlay.playAudioBackground(MainActivity.this, R.raw.get_lucky);
         
         ImageView startGame1vIA = (ImageView)findViewById(R.id.startGame1vIA);
         startGame1vIA.setOnClickListener(this);
@@ -88,10 +88,10 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	@Override
 	  protected void onPause() {
 		
-		//il primo if � quando premo il pulsante BACK
+		//il primo if quando premo il pulsante BACK
 	    if (this.isFinishing()){
 	    	Toast.makeText(MainActivity.this, "BACK PRESSED and STOP MUSIC", Toast.LENGTH_SHORT).show();
-	    	AudioPlay.stopAudio();	    
+	    	AudioPlay.stopAudioBackground();	    
 	    }
 	    
 	    //!!!!! DA IMPLEMENTARE LO STOP DELLA MUSICA QUANDO PREMO TASTO HOME O BLOCCO LO SCHERMO

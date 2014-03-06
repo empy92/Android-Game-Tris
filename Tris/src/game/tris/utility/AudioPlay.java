@@ -4,11 +4,29 @@ import android.content.Context;
 import android.media.MediaPlayer;
 
 public class AudioPlay {
-
-    public static MediaPlayer mediaPlayer;
-    public static boolean isplayingAudio=false;
-    
-    
+	
+	  	private static MediaPlayer mediaPlayer;
+	   	private static MediaPlayer mediaPlayerBackground;
+	   	private static boolean isplayingAudio=false;
+	    
+	    
+	    //##################################### ANOTHER MEDIA PLAYER FOR THE BACKGROUND #################################
+	    
+	    // play sound with looping
+	    public static void playAudioBackground(Context c,int id){
+	         mediaPlayerBackground = MediaPlayer.create(c,id);
+	         mediaPlayerBackground.setLooping(true);
+	         
+	         if(!mediaPlayerBackground.isPlaying()){
+	        	 mediaPlayerBackground.start();             
+	         }          
+	     }
+	    
+	    public static void stopAudioBackground(){          
+	        mediaPlayerBackground.stop();
+	    }
+	    
+	    //###############################################################################################################
     // play sound with looping
     public static void playAudio(Context c,int id){
          mediaPlayer = MediaPlayer.create(c,id);
@@ -34,7 +52,12 @@ public class AudioPlay {
     public static void stopAudio(){     
          isplayingAudio=false;       
          mediaPlayer.stop();
-    }   
+    }  
+    
+    // reset sound
+    public static void resetAudio(){         
+         mediaPlayer.reset();
+    }  
     
     // release audio
     public static void releaseAudio(){     

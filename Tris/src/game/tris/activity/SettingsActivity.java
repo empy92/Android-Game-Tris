@@ -148,7 +148,7 @@ public class SettingsActivity extends Activity {
 		if (this.isFinishing()){			 
 			// do nothing
 	    }else{	
-			AudioPlay.stopAudio();
+			AudioPlay.stopAudioBackground();
 	    }    
 	    super.onPause();
 	  }

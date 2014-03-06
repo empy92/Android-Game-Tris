@@ -41,8 +41,14 @@ public class GridActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		Point p = getPoint(v);
 		
-		//sound when button is pressed
-		AudioPlay.playAudioNoLoop(GridActivity.this, R.raw.buttonpress);
+		if(AudioPlay.isPlayingAudio()){
+            AudioPlay.stopAudio();
+            AudioPlay.resetAudio();
+        }
+
+        //sound when button is pressed NO LOOP
+        AudioPlay.playAudioNoLoop(GridActivity.this, R.raw.buttonpress);
+
 
 		if(game.mark(p.x, p.y)){
 			if(game.getPlayer() == 1)
@@ -278,10 +284,10 @@ public class GridActivity extends Activity implements OnClickListener{
 	 protected void onPause() {
 		
 		if (this.isFinishing()){
-			// si � premuto il tasto BACK del dispositivo e non succede nulla    	
+			// si premuto il tasto BACK del dispositivo e non succede nulla    	
 	    }else{
-	    	//l'activity � passata allo stato pause per un altro motivo rispetto alla premuto del tasto BACK
-			AudioPlay.stopAudio();     
+	    	//l'activity passata allo stato pause per un altro motivo rispetto alla premuto del tasto BACK
+			AudioPlay.stopAudioBackground();     
 	    }
 		super.onPause();
 	  }
