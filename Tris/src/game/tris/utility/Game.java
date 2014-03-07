@@ -16,7 +16,7 @@ public class Game {
 	public Game() {
 		grid = new Grid();
 		player = Grid.X;
-		turn = 0;
+		turn = 1;
 		rand = new Random();
 		rand.setSeed(System.currentTimeMillis());
 	}

@@ -25,6 +25,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	MediaPlayer mp;
 	private Game game;
 	int[] view;
+	int gameType;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 		setContentView(R.layout.activity_grid);
 		view = new int[9];
 		init();
+		Intent intent = getIntent();
+		gameType = intent.getIntExtra(getPackageName()+".gameType",1);
 		game = new Game();
 	}
 
@@ -46,20 +49,10 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	public void onClick(View v) {
 		Point p = getPoint(v);
 		
-		if(AudioPlay.isPlayingAudio()){
-            AudioPlay.stopAudio();
-            AudioPlay.resetAudio();
-        }
-
-        //sound when button is pressed NO LOOP
-        AudioPlay.playAudioNoLoop(GridActivity.this, R.raw.buttonpress);
-
-
-		if(game.mark(p.x, p.y)){
-			if(game.getPlayer() == 1)
-				display(v, game.getPlayer());
-			else
-				;
+		if(game.mark(p.x, p.y)){//if free display sign
+			display(v, game.getPlayer());
+			buttonSound();
+			
 			if(game.isfinish()){
 				disable();
 				
@@ -67,7 +60,10 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 				
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);	 
 				// set title
-				alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+"!");
+				if(gameType == 1)
+					alertDialogBuilder.setTitle("Good job! You win!");
+				else if (gameType == 2)	
+					alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+"!");
 		 
 				// set dialog message
 				alertDialogBuilder
@@ -128,49 +124,51 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 			}else{
 				game.changePlayer();
 				//for IA--------------------------------
-				if(game.getTurn()<=8)
-					IA(R.drawable.o);
-				if(game.isfinish()){
-					disable();
+				if(gameType == 1){
+					if(game.getTurn()<=8)
+						playturnIA();
+					if(game.isfinish()){
+						disable();
+						
+						//####### TEST DIALOG ######
+						
+						AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);		 
+						// set title
+						alertDialogBuilder.setTitle("ARGH! You lose!");
+				 
+						// set dialog message
+						alertDialogBuilder
+						.setMessage("Select a option below")
+						.setCancelable(false)
+						.setPositiveButton("Home",new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,int id) {
+								GridActivity.this.finish();
+							}
+						})
+						.setNegativeButton("Play Again!",new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,int id) {
+								Intent intent = getIntent();
+								finish();
+								startActivity(intent);
+							}
+						});
+				 
+						// create alert dialog
+						AlertDialog alertDialog = alertDialogBuilder.create();
+						// show it
+						alertDialog.show();
 					
-					//####### TEST DIALOG ######
-					
-					AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);		 
-					// set title
-					alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+"!");
-			 
-					// set dialog message
-					alertDialogBuilder
-					.setMessage("Select a option below")
-					.setCancelable(false)
-					.setPositiveButton("Home",new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,int id) {
-							GridActivity.this.finish();
-						}
-					})
-					.setNegativeButton("Play Again!",new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,int id) {
-							Intent intent = getIntent();
-							finish();
-							startActivity(intent);
-						}
-					});
-			 
-					// create alert dialog
-					AlertDialog alertDialog = alertDialogBuilder.create();
-					// show it
-					alertDialog.show();
-				
-					//####### TEST DIALOG ######				
+						//####### TEST DIALOG ######				
+					}
+					else
+						game.changePlayer();
 				}
-				else
-					game.changePlayer();
 			}
 		}
-		else{
+		/*else{
 			Toast toast = Toast.makeText(this, R.string.alreadysign, Toast.LENGTH_SHORT);
 			toast.show();
-		}
+		}*/
 	}
 	
 	private void init(){
@@ -273,26 +271,26 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 		b22.setClickable(false);
 	}
 	
-	private void IA(int resId){
+	private void playturnIA(){
 		Point p = game.markIA();
 		if(p.x == 0 && p.y ==0)
-			((ImageView) findViewById(R.id.b00)).setImageResource(resId);
+			display(findViewById(R.id.b00), game.getPlayer());
 		else if(p.x == 0 && p.y ==1)
-			((ImageView) findViewById(R.id.b01)).setImageResource(resId);
+			display(findViewById(R.id.b01), game.getPlayer());
 		else if(p.x == 0 && p.y ==2)
-			((ImageView) findViewById(R.id.b02)).setImageResource(resId);
+			display(findViewById(R.id.b02), game.getPlayer());
 		else if(p.x == 1 && p.y ==0)
-			((ImageView) findViewById(R.id.b10)).setImageResource(resId);
+			display(findViewById(R.id.b10), game.getPlayer());
 		else if(p.x == 1 && p.y ==1)
-			((ImageView) findViewById(R.id.b11)).setImageResource(resId);
+			display(findViewById(R.id.b11), game.getPlayer());
 		else if(p.x == 1 && p.y ==2)
-			((ImageView) findViewById(R.id.b12)).setImageResource(resId);
+			display(findViewById(R.id.b12), game.getPlayer());
 		else if(p.x == 2 && p.y ==0)
-			((ImageView) findViewById(R.id.b20)).setImageResource(resId);
+			display(findViewById(R.id.b20), game.getPlayer());
 		else if(p.x == 2 && p.y ==1)
-			((ImageView) findViewById(R.id.b21)).setImageResource(resId);
+			display(findViewById(R.id.b21), game.getPlayer());
 		else if(p.x == 2 && p.y ==2)
-			((ImageView) findViewById(R.id.b22)).setImageResource(resId);
+			display(findViewById(R.id.b22), game.getPlayer());
 	}
 	
 	
@@ -326,5 +324,15 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 			if(view[i] != id)
 				findViewById(view[i]).setPressed(false);
 		}
+	}
+	
+	private void buttonSound(){
+		if(AudioPlay.isPlayingAudio()){
+            AudioPlay.stopAudio();
+            AudioPlay.resetAudio();
+        }
+
+        //sound when button is pressed NO LOOP
+        AudioPlay.playAudioNoLoop(GridActivity.this, R.raw.buttonpress);
 	}
 }

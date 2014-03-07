@@ -25,7 +25,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener, OnTouchListener{
-
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,13 +57,18 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 
 	@Override
 	public void onClick(View v) {
-		if(v.getId() == R.id.startGame1vIA){
-			Intent intent = new Intent(this,GridActivity.class);
-			startActivity(intent);
-		}else if(v.getId() == R.id.settings){
+		if(v.getId() == R.id.settings){
 			Intent intent = new Intent(this,SettingsActivity.class);
 			startActivity(intent);
+		}else{
+			Intent intent = new Intent(this,GridActivity.class);
+			if(v.getId() == R.id.startGame1vIA)
+				intent.putExtra(getPackageName()+".gameType", 1);
+			else if(v.getId() == R.id.startGame1v1)
+				intent.putExtra(getPackageName()+".gameType", 2);
+			startActivity(intent);
 		}
+
 	}
 
 
