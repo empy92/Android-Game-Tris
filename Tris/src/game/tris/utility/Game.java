@@ -9,8 +9,9 @@ public class Game {
 	private Grid grid;
 	private int player;
 	private int turn;
-	static final int LEVEL = 2;
-	static final int MAXLEVEL = 3; //IA prop = (MAXLEVEL-LEVEL)/MAXLEVEL
+	public static final int EASY = 0;
+	public static final int GOOD = 1;
+	public static final int PERFECT = 2;
 	private Random rand;
 	
 	public Game() {
@@ -45,9 +46,66 @@ public class Game {
 		return turn;
 	}
 	
+	//default markIA play random
 	public Point markIA(){
+		Point p = easy();
+		mark(p.x, p.y);
+		return p;
+	}
+	
+	//if level doesn't exist it mark randomly
+	public Point markIA(int level){
+		Point p;
+		if(level == EASY)
+			p = easy();
+		else if(level == GOOD)
+			p = good();
+		else //by default
+			p = easy();
+		mark(p.x, p.y);
+		return p;
+	}
+	
+	//algorithm: randomly
+	private Point easy(){
 		Point p = grid.free()[rand.nextInt(grid.getFree())];
-		grid.marks(p.x, p.y, player);
+		return p;
+	}
+	
+	//algorithm: win or not lose easy
+	private Point good(){
+		Point p = null;
+		boolean findGood = false;
+		//try to win
+		for(int i=0; i<grid.getFree() && !findGood; i++){
+			Point point = grid.free()[i];
+			mark(point.x, point.y);
+			if(isfinish()){
+				p = point;
+				findGood = true;
+			}
+			grid.resetBox(point.x, point.y);
+		}
+		//try to not lose
+		if(!findGood){
+			changePlayer();
+			turn--;
+			for(int i=0; i<grid.getFree() && !findGood; i++){
+				Point point = grid.free()[i];
+				mark(point.x, point.y);
+				if(isfinish()){
+					p = point;
+					findGood = true;
+				}
+				grid.resetBox(point.x, point.y);
+			}
+			changePlayer();
+			turn--;
+		}
+		//if not win or lose play easy
+		if(!findGood){
+			p = easy();
+		}
 		return p;
 	}
 }

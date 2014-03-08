@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class GridActivity extends Activity implements OnClickListener, OnTouchListener{
 
@@ -272,7 +271,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	}
 	
 	private void playturnIA(){
-		Point p = game.markIA();
+		Point p = game.markIA(Game.GOOD); //add difficulty!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		if(p.x == 0 && p.y ==0)
 			display(findViewById(R.id.b00), game.getPlayer());
 		else if(p.x == 0 && p.y ==1)

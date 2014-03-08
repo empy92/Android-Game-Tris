@@ -75,11 +75,7 @@ public class Grid {
 	
 	private void createMatrix() {
 		matrix = new int[line][line];
-		for(int i=0; i<line; i++) {
-			for(int j=0; j<line; j++) {
-				matrix[i][j] = 0;
-			}
-		}
+		resetAll();
 			
 	}
 	
@@ -103,5 +99,19 @@ public class Grid {
 			}
 		}
 		return free;
+	}
+	
+	//set a box empty
+	public void resetBox(int v, int h){
+		matrix[v][h] = EMPTY;
+	}
+	
+	//set all empty
+	public void resetAll(){
+		for(int i=0; i<line; i++) {
+			for(int j=0; j<line; j++) {
+				matrix[i][j] = EMPTY;
+			}
+		}
 	}
 }
