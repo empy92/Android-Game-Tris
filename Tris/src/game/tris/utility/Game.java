@@ -60,6 +60,8 @@ public class Game {
 			p = easy();
 		else if(level == GOOD)
 			p = good();
+		else if(level == PERFECT)
+			p = perfect();
 		else //by default
 			p = easy();
 		mark(p.x, p.y);
@@ -106,6 +108,12 @@ public class Game {
 		if(!findGood){
 			p = easy();
 		}
+		return p;
+	}
+
+	//algorithm: perfect
+	private Point perfect(){
+		Point p = null;
 		return p;
 	}
 }

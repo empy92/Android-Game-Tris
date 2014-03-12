@@ -271,7 +271,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	}
 	
 	private void playturnIA(){
-		Point p = game.markIA(Game.GOOD); //add difficulty!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		Point p = game.markIA(Game.PERFECT); //add difficulty!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		if(p.x == 0 && p.y ==0)
 			display(findViewById(R.id.b00), game.getPlayer());
 		else if(p.x == 0 && p.y ==1)
