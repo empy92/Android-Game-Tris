@@ -77,32 +77,9 @@ public class Game {
 	//algorithm: win or not lose easy
 	private Point good(){
 		Point p = null;
-		boolean findGood = false;
-		//try to win
-		for(int i=0; i<grid.getFree() && !findGood; i++){
-			Point point = grid.free()[i];
-			mark(point.x, point.y);
-			if(isfinish()){
-				p = point;
-				findGood = true;
-			}
-			grid.resetBox(point.x, point.y);
-		}
-		//try to not lose
+		boolean findGood = canWin(p);
 		if(!findGood){
-			changePlayer();
-			turn--;
-			for(int i=0; i<grid.getFree() && !findGood; i++){
-				Point point = grid.free()[i];
-				mark(point.x, point.y);
-				if(isfinish()){
-					p = point;
-					findGood = true;
-				}
-				grid.resetBox(point.x, point.y);
-			}
-			changePlayer();
-			turn--;
+			findGood = canNotLose(p);
 		}
 		//if not win or lose play easy
 		if(!findGood){
@@ -115,5 +92,39 @@ public class Game {
 	private Point perfect(){
 		Point p = null;
 		return p;
+	}
+	
+	private boolean canWin(Point p){
+		//try to win
+		boolean canWin = false;
+		for(int i=0; i<grid.getFree() && !canWin; i++){
+			Point point = grid.free()[i];
+			mark(point.x, point.y);
+			if(isfinish()){
+				p = point;
+				canWin = true;
+			}
+			grid.resetBox(point.x, point.y);
+		}
+		return canWin;
+	}
+	
+	private boolean canNotLose(Point p){
+		//try to not lose
+		boolean canNotLose = false;
+		changePlayer();
+		turn--;
+		for(int i=0; i<grid.getFree() && !canNotLose; i++){
+			Point point = grid.free()[i];
+			mark(point.x, point.y);
+			if(isfinish()){
+				p = point;
+				canNotLose = true;
+			}
+			grid.resetBox(point.x, point.y);
+		}
+		changePlayer();
+		turn--;
+		return canNotLose;
 	}
 }
