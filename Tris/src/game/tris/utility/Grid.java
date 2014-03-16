@@ -37,6 +37,7 @@ public class Grid {
 		boolean empty = true;
 		if(matrix[v][h]==EMPTY) {
 			matrix[v][h] = mark;
+			nfree--;
 		}
 		else {
 			empty = false;
@@ -86,15 +87,15 @@ public class Grid {
 	
 	public Point[] free(){
 		Point[] free = new Point[9];
-		nfree = 0;
+		int k = 0;
 		for(int i=0; i<line; i++) {
 			for(int j=0; j<line; j++) {
 				if(matrix[i][j] == EMPTY){
 					Point p = new Point();
 					p.x = i;
 					p.y = j;
-					free[nfree] = p;
-					nfree++;
+					free[k] = p;
+					k++;
 				}
 			}
 		}
@@ -104,6 +105,7 @@ public class Grid {
 	//set a box empty
 	public void resetBox(int v, int h){
 		matrix[v][h] = EMPTY;
+		nfree++;
 	}
 	
 	//set all empty
@@ -113,5 +115,6 @@ public class Grid {
 				matrix[i][j] = EMPTY;
 			}
 		}
+		nfree = line*line;
 	}
 }

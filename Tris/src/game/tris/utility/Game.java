@@ -114,6 +114,53 @@ public class Game {
 	//algorithm: perfect
 	private Point perfect(){
 		Point p = null;
+		boolean findGood = false;
+		//try to win
+		for(int i=0; i<grid.getFree() && !findGood; i++){
+			Point point = grid.free()[i];
+			mark(point.x, point.y);
+			if(isfinish()){
+				p = point;
+				findGood = true;
+			}
+			grid.resetBox(point.x, point.y);
+		}
+		//try to not lose
+		if(!findGood){
+			changePlayer();
+			turn--;
+			for(int i=0; i<grid.getFree() && !findGood; i++){
+				Point point = grid.free()[i];
+				mark(point.x, point.y);
+				if(isfinish()){
+					p = point;
+					findGood = true;
+				}
+				grid.resetBox(point.x, point.y);
+			}
+			changePlayer();
+			turn--;
+		}
+		//if not win or lose play easy
+		if(!findGood){
+			p = defend();
+		}
+		return p;
+	}
+	
+	private Point defend(){
+		Point p = null;
+		boolean findGood = false;
+		for(int i=0; i<grid.getFree() && !findGood; i++){
+			if(grid.free()[i].x == 1 && grid.free()[i].y == 1){ //center
+				p = grid.free()[i];
+				findGood = true;
+			}
+		}
+		if(!findGood){
+			//chose where
+		}
+		
 		return p;
 	}
 }
