@@ -158,7 +158,20 @@ public class Game {
 			}
 		}
 		if(!findGood){
-			//chose where
+			Point[] corner = new Point[4];
+			int k = 0;
+			for(int i=0; i<grid.getFree() && !findGood; i++){
+				if(grid.free()[i].x % 2 == 0 && grid.free()[i].y % 2 == 0){ //corners
+					corner[k] = grid.free()[i];
+					k++;
+				}
+			}
+			if(k>0){
+				p = corner[rand.nextInt(k)]; //random corner
+				findGood = true;
+			}
+			else
+				p = easy();
 		}
 		
 		return p;
