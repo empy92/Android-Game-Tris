@@ -58,15 +58,19 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 				//####### TEST DIALOG ######
 				
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);	 
+				
 				// set title
 				if(gameType == 1)
 					alertDialogBuilder.setTitle("Good job! You win!");
 				else if (gameType == 2)	
 					alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+"!");
-		 
+					
+				
 				// set dialog message
 				alertDialogBuilder
-				.setMessage("Select a option below")
+				//.setMessage("Select a option below")
+				
+				
 				.setCancelable(false)
 				.setPositiveButton("Home",new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog,int id) {
@@ -99,7 +103,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 		 
 				// set dialog message
 				alertDialogBuilder
-				.setMessage("Select a option below")
+				//.setMessage("Select a option below")
 				.setCancelable(false)
 				.setPositiveButton("Home",new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog,int id) {
@@ -137,7 +141,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 				 
 						// set dialog message
 						alertDialogBuilder
-						.setMessage("Select a option below")
+						//.setMessage("Select a option below")
 						.setCancelable(false)
 						.setPositiveButton("Home",new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,int id) {

@@ -2,16 +2,10 @@ package game.tris.activity;
 
 
 import game.tris.utility.AudioPlay;
-
-import java.util.List;
 import com.example.tris.R;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningTaskInfo;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -47,7 +41,7 @@ public class SettingsActivity extends Activity {
 		
 		
 		// imageview che mi collega al sito di wild stone studio
-		ImageView linksito = (ImageView)findViewById(R.id.imageView1);
+		ImageView linksito = (ImageView)findViewById(R.id.wild);
 	        linksito.setOnClickListener(new OnClickListener() {
 	        	@Override
 	        	public void onClick(View arg0){
@@ -55,7 +49,22 @@ public class SettingsActivity extends Activity {
 	        		new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.wildstonestudio.altervista.org"));
 	                startActivity(browserIntent);
 	            }
-            });      
+            });
+	        
+	    	// imageview che mi permette di condividere del testo con le app presenti sul dispositivo
+			ImageView share = (ImageView)findViewById(R.id.share);
+		        share.setOnClickListener(new OnClickListener() {
+		        	@Override
+		        	public void onClick(View arg0){
+		        		Intent sendIntent = new Intent();
+		        		sendIntent.setAction(Intent.ACTION_SEND);
+		        		sendIntent.putExtra(Intent.EXTRA_TEXT, "Tris App Wild Stone Studio! Join the fun! (link store)");
+		        		sendIntent.setType("text/plain");
+		        		startActivity(sendIntent);
+		            }
+	            });
+	        
+	        
 	}
 
 	@Override

@@ -93,7 +93,7 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	@Override
 	  protected void onPause() {
 		
-		//il primo if quando premo il pulsante BACK
+		//quando premo il pulsante BACK
 	    if (this.isFinishing()){
 	    	Toast.makeText(MainActivity.this, "BACK PRESSED and STOP MUSIC", Toast.LENGTH_SHORT).show();
 	    	AudioPlay.stopAudioBackground();	    
