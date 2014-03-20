@@ -159,16 +159,42 @@ public class Game {
 		}
 		if(!findGood){
 			Point[] corner = new Point[4];
-			int k = 0;
+			Point[] side = new Point[4];
+			int corners = 0;
+			int sides = 0;
 			for(int i=0; i<grid.getFree() && !findGood; i++){
 				if(grid.free()[i].x % 2 == 0 && grid.free()[i].y % 2 == 0){ //corners
-					corner[k] = grid.free()[i];
-					k++;
+					corner[corners] = grid.free()[i];
+					corners++;
+				}
+				else{
+					side[sides] = grid.free()[i];	//sides
+					sides++;
 				}
 			}
-			if(k>0){
-				p = corner[rand.nextInt(k)]; //random corner
-				findGood = true;
+			if(corners>0){
+				if(corners == 2 && grid.markBy(1, 1, player)){
+					p = side[rand.nextInt(sides)]; //random side
+					findGood = true;
+				}
+				else{
+					if(sides == 2 && grid.markBy(1, 1, player)){
+						//delete wrongCorner
+						boolean findWrongCorner = false;
+						for(int i=0; i<corners && !findWrongCorner; i++){
+							if((corner[i].x == side[0].x && corner[i].y == side[1].y) || 
+									(corner[i].x == side[1].x && corner[i].y == side[0].y)){
+								Point tmp = corner[corners-1];
+								corner[corners-1] = corner[i];
+								corner[i] = tmp;
+								corners--;
+								findWrongCorner = true;
+							}
+						}
+					}
+					p = corner[rand.nextInt(corners)]; //random corner
+					findGood = true;
+				}
 			}
 			else
 				p = easy();

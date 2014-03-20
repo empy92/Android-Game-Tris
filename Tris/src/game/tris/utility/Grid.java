@@ -1,5 +1,6 @@
 package game.tris.utility;
 
+import android.R.bool;
 import android.graphics.Point;
 
 /*
@@ -116,5 +117,12 @@ public class Grid {
 			}
 		}
 		nfree = line*line;
+	}
+	
+	public boolean markBy (int v, int h, int player){
+		boolean mark = false;
+		if(matrix[v][h] == player)
+			mark = true;
+		return mark;
 	}
 }
