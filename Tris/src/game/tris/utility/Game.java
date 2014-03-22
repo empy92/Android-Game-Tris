@@ -192,6 +192,26 @@ public class Game {
 							}
 						}
 					}
+					else if((sides == 3) && (corners == 3) && (grid.markBy(1, 1, player))){
+						//delete wrongCorner
+						boolean findWrongCorner = false;
+						Point wrongSide;
+						if((side[0].x == side[1].x) || (side[0].y == side[1].y))
+							wrongSide = side[2];
+						else if((side[0].x == side[2].x) || (side[0].y == side[2].y))
+							wrongSide = side[1];
+						else
+							wrongSide = side[0];
+						for(int i=0; i<corners && !findWrongCorner; i++){
+							if((corner[i].x == wrongSide.x) || (corner[i].y == wrongSide.y)){
+								Point tmp = corner[corners-1];
+								corner[corners-1] = corner[i];
+								corner[i] = tmp;
+								corners--;
+								findWrongCorner = true;
+							}
+						}
+					}
 					p = corner[rand.nextInt(corners)]; //random corner
 					findGood = true;
 				}
