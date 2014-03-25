@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -25,6 +26,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	private Game game;
 	int[] view;
 	int gameType;
+	static int level;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 		Intent intent = getIntent();
 		gameType = intent.getIntExtra(getPackageName()+".gameType",1);
 		game = new Game();
+		setLevel();
 	}
 
 	@Override
@@ -275,7 +278,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	}
 	
 	private void playturnIA(){
-		Point p = game.markIA(Game.PERFECT); //add difficulty!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		Point p = game.markIA(level); 		//add difficulty
 		if(p.x == 0 && p.y ==0)
 			display(findViewById(R.id.b00), game.getPlayer());
 		else if(p.x == 0 && p.y ==1)
@@ -337,5 +340,10 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 
         //sound when button is pressed NO LOOP
         AudioPlay.playAudioNoLoop(GridActivity.this, R.raw.buttonpress);
+	}
+	
+	private void setLevel(){
+		SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
+		level = sharedPreferences.getInt("diffKey", Game.EASY);
 	}
 }
