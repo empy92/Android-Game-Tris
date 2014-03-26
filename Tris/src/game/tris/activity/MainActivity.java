@@ -104,8 +104,11 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 		
 		//quando premo il pulsante BACK
 	    if (this.isFinishing()){
-	    	Toast.makeText(MainActivity.this, "BACK PRESSED and STOP MUSIC", Toast.LENGTH_SHORT).show();
-	    	AudioPlay.stopAudioBackground();	    
+	    	SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
+			soundSet = sharedPreferences.getInt("soundKey", 0);
+			if(soundSet == 0){
+				AudioPlay.stopAudioBackground();
+			}
 	    }
 	    
 	    //!!!!! DA IMPLEMENTARE LO STOP DELLA MUSICA QUANDO PREMO TASTO HOME O BLOCCO LO SCHERMO
