@@ -3,6 +3,8 @@ package game.tris.activity;
 import java.util.List;
 
 import game.tris.utility.AudioPlay;
+import game.tris.utility.Game;
+
 import com.example.tris.R;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -26,13 +28,20 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener, OnTouchListener{
 	
+	static int soundSet;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        //faccio partire la musica di background all'avvio dell' activity
-        AudioPlay.playAudioBackground(MainActivity.this, R.raw.get_lucky);
+        // verifico che la musica non sia disattivata
+        SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
+		soundSet = sharedPreferences.getInt("soundKey", 0);
+		if(soundSet == 0){
+	        //faccio partire la musica di background all'avvio dell' activity
+	        AudioPlay.playAudioBackground(MainActivity.this, R.raw.get_lucky);
+		}
         
         ImageView startGame1vIA = (ImageView)findViewById(R.id.startGame1vIA);
         startGame1vIA.setOnClickListener(this);

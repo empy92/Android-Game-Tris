@@ -24,6 +24,7 @@ public class SettingsActivity extends Activity {
 	RadioGroup radioGroupSound, radioGroupDiff;
 	final String SOUND = "soundKey"; 
 	final String DIFFICULTY = "diffKey";
+	static int soundSet;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,13 @@ public class SettingsActivity extends Activity {
 			
 			    	     RadioButton checkedRadioButton = (RadioButton)radioGroupSound.findViewById(checkedId);
 			    	     int checkedIndex = radioGroupSound.indexOfChild(checkedRadioButton);
+			    	     
+			    	     // quando scelgo ON nel radiogroup mi fa partire la musica se questa non sta giˆ andando
+			    	     if(!AudioPlay.isPlayingAudioBackground() && checkedIndex == 0){
+			    	    	 AudioPlay.playAudioBackground(SettingsActivity.this, R.raw.get_lucky);
+			    	     }else if(AudioPlay.isPlayingAudioBackground() && checkedIndex == 1){
+			    	    	 AudioPlay.stopAudioBackground();
+			    	     }
 			    	     SavePreferences(SOUND, checkedIndex);
 	    	    }};
 	    	    
@@ -119,7 +127,12 @@ public class SettingsActivity extends Activity {
 		if (this.isFinishing()){			 
 			// do nothing
 	    }else{	
-			AudioPlay.stopAudioBackground();
+	        // verifico che la musica non sia disattivata
+	        SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
+			soundSet = sharedPreferences.getInt("soundKey", 0);
+			if(soundSet == 0){
+				AudioPlay.stopAudioBackground();
+			}
 	    }    
 	    super.onPause();
 	  }

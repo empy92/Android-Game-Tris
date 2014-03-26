@@ -26,7 +26,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	private Game game;
 	int[] view;
 	int gameType;
-	static int level;
+	static int level, soundSet;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -314,7 +314,12 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 			// si premuto il tasto BACK del dispositivo e non succede nulla    	
 	    }else{
 	    	//l'activity passata allo stato pause per un altro motivo rispetto alla premuto del tasto BACK
-			AudioPlay.stopAudioBackground();     
+	    	
+	    	SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
+			soundSet = sharedPreferences.getInt("soundKey", 0);
+			if(soundSet == 0){	
+				AudioPlay.stopAudioBackground();     
+			}
 	    }
 		super.onPause();
 	  }
@@ -333,13 +338,19 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	}
 	
 	private void buttonSound(){
-		if(AudioPlay.isPlayingAudio()){
-            AudioPlay.stopAudio();
-            AudioPlay.resetAudio();
-        }
-
-        //sound when button is pressed NO LOOP
-        AudioPlay.playAudioNoLoop(GridActivity.this, R.raw.buttonpress);
+		
+        // verifico che la musica non sia disattivata
+        SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
+		soundSet = sharedPreferences.getInt("soundKey", 0);
+		if(soundSet == 0){				
+			if(AudioPlay.isPlayingAudio()){
+	            AudioPlay.stopAudio();
+	            AudioPlay.resetAudio();
+	        }
+	
+	        //sound when button is pressed NO LOOP
+	        AudioPlay.playAudioNoLoop(GridActivity.this, R.raw.buttonpress);
+		}
 	}
 	
 	private void setLevel(){

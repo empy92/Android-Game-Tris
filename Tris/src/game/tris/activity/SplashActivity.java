@@ -4,6 +4,7 @@ import game.tris.utility.AudioPlay;
 import com.example.tris.R;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
  
@@ -11,14 +12,20 @@ public class SplashActivity extends Activity {
  
     // Splash screen timer 3 second
     private static int SPLASH_TIME_OUT = 3000;
- 
+    static int soundSet;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         
-        //start sound in splash screen
-        AudioPlay.playAudio(SplashActivity.this, R.raw.hammer);
+        // verifico che la musica non sia disattivata
+        SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
+		soundSet = sharedPreferences.getInt("soundKey", 0);
+		if(soundSet == 0){
+	        //start sound in splash screen
+	        AudioPlay.playAudio(SplashActivity.this, R.raw.hammer);
+		}
         
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -37,7 +44,9 @@ public class SplashActivity extends Activity {
     
     protected void onPause(){
     	//stop music in splash screen
-    	AudioPlay.stopAudio();
+    	if(soundSet == 0){
+    		AudioPlay.stopAudio();
+    	}
     	super.onPause();  
     }
  

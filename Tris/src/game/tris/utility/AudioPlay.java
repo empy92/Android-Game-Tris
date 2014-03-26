@@ -8,6 +8,7 @@ public class AudioPlay {
 	  	private static MediaPlayer mediaPlayer;
 	   	private static MediaPlayer mediaPlayerBackground;
 	   	private static boolean isplayingAudio=false;
+	   	private static boolean isplayingAudioBackground=false;
 	    
 	    
 	    //##################################### ANOTHER MEDIA PLAYER FOR THE BACKGROUND #################################
@@ -18,13 +19,19 @@ public class AudioPlay {
 	         mediaPlayerBackground.setLooping(true);
 	         
 	         if(!mediaPlayerBackground.isPlaying()){
+	        	 isplayingAudioBackground=true;
 	        	 mediaPlayerBackground.start();             
 	         }          
 	     }
 	    
-	    public static void stopAudioBackground(){          
+	    public static void stopAudioBackground(){
+	    	isplayingAudioBackground=false;
 	        mediaPlayerBackground.stop();
 	    }
+	    
+	    public static boolean isPlayingAudioBackground(){     
+	        return isplayingAudioBackground;       
+	   } 
 	    
 	    //###############################################################################################################
     // play sound with looping
