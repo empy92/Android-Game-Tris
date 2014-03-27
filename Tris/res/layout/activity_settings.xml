@@ -111,39 +111,20 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-       		android:src="@drawable/logo01" />
+       		android:src="@drawable/stella" />
 
         <ImageView
             android:id="@+id/wild"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:src="@drawable/logo01"/>
+            android:src="@drawable/logo_wild"/>
 
         <ImageView
             android:id="@+id/share"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-        	android:src="@drawable/logo01"/>
+        	android:src="@drawable/share"/>
     </LinearLayout>
-    
-	<!--
-	
-		<ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:src="@drawable/ic_launcher" />
-	
-    <TextView
-        android:id="@+id/link"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:text="@string/website"
-        android:textSize="@dimen/textlink"
-        android:layout_gravity="center_horizontal" />
-	-->
 </LinearLayout>
