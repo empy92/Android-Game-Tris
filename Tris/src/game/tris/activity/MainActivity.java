@@ -2,6 +2,7 @@ package game.tris.activity;
 
 import java.util.List;
 
+import game.tris.utility.ArcadeTextView;
 import game.tris.utility.AudioPlay;
 import game.tris.utility.Game;
 
@@ -43,11 +44,11 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	        AudioPlay.playAudioBackground(MainActivity.this, R.raw.get_lucky);
 		}
         
-        ImageView startGame1vIA = (ImageView)findViewById(R.id.startGame1vIA);
+        ArcadeTextView startGame1vIA = (ArcadeTextView)findViewById(R.id.startGame1vIA);
         startGame1vIA.setOnClickListener(this);
-        ImageView startGame1v1 = (ImageView)findViewById(R.id.startGame1v1);
+        ArcadeTextView startGame1v1 = (ArcadeTextView)findViewById(R.id.startGame1v1);
         startGame1v1.setOnClickListener(this);
-        ImageView settingsButton = (ImageView)findViewById(R.id.settings);
+        ArcadeTextView settingsButton = (ArcadeTextView)findViewById(R.id.settings);
         settingsButton.setOnClickListener(this);
         
         findViewById(R.id.settings).setOnTouchListener(this);

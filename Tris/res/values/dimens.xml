@@ -6,5 +6,6 @@
 
     <dimen name="textSize">15sp</dimen>
     <dimen name="textlink">15sp</dimen>
+    <dimen name="textTitle">30sp</dimen>
     
 </resources>

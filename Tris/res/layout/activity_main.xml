@@ -14,37 +14,34 @@
                 android:layout_weight="0.4"
                 android:adjustViewBounds="true"/>
 
-     <ImageView
+     <game.tris.utility.ArcadeTextView
                 android:id="@+id/startGame1vIA"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.2"
-                android:adjustViewBounds="true"
-                android:clickable="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/ng_selector" />
+                android:layout_gravity="center_horizontal"
+                android:text="@string/startGame1vIA"
+                android:textSize="@dimen/textTitle"
+                android:clickable="true"/>
 
-    <ImageView
+    <game.tris.utility.ArcadeTextView
                 android:id="@+id/startGame1v1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.2"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:clickable="true"           
-                android:src="@drawable/mp_selector" />
+                android:layout_gravity="center_horizontal"
+                android:text="@string/startGame1v1"
+                android:textSize="@dimen/textTitle"
+                android:clickable="true"/>
 
-     <ImageView
+     <game.tris.utility.ArcadeTextView
                 android:id="@+id/settings"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.2"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:clickable="true"           
-                android:src="@drawable/set_selector" />
+                android:layout_gravity="center_horizontal"
+                android:text="@string/settingsButton"
+                android:textSize="@dimen/textTitle"
+                android:clickable="true"/>
     
 </LinearLayout>

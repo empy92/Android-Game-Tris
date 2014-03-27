@@ -25,6 +25,7 @@ public final class R {
     
          */
         public static final int textSize=0x7f050002;
+        public static final int textTitle=0x7f050004;
         public static final int textlink=0x7f050003;
     }
     public static final class drawable {

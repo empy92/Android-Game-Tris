@@ -1,4 +1,5 @@
 <resources>
     <dimen name="textSize">28sp</dimen>
     <dimen name="textlink">28sp</dimen>
+    <dimen name="textTitle">40sp</dimen>
 </resources>
