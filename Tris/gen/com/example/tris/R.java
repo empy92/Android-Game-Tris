@@ -48,11 +48,11 @@ public final class R {
         public static final int b01=0x7f090001;
         public static final int b02=0x7f090002;
         public static final int b10=0x7f090003;
-        public static final int b11=0x7f090004;
-        public static final int b12=0x7f090005;
-        public static final int b20=0x7f090006;
-        public static final int b21=0x7f090007;
-        public static final int b22=0x7f090008;
+        public static final int b11=0x7f090005;
+        public static final int b12=0x7f090006;
+        public static final int b20=0x7f090007;
+        public static final int b21=0x7f090008;
+        public static final int b22=0x7f090009;
         public static final int background=0x7f09001b;
         public static final int diffEasy=0x7f090013;
         public static final int diffHard=0x7f090015;
@@ -65,7 +65,7 @@ public final class R {
         public static final int share=0x7f090018;
         public static final int soundOff=0x7f090010;
         public static final int soundOn=0x7f09000f;
-        public static final int space=0x7f090009;
+        public static final int space=0x7f090004;
         public static final int startGame1v1=0x7f09000b;
         public static final int startGame1vIA=0x7f09000a;
         public static final int textView1=0x7f09000d;
