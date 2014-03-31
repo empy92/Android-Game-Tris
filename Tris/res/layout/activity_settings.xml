@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:text="@string/settingsText1"
         android:textSize="@dimen/textSize"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal" 
+        android:textColor="@color/unclick"/>
 
     <RadioGroup
         android:id="@+id/radioGroup2"
@@ -32,7 +33,8 @@
             android:layout_weight="0.1"
             android:checked="true"
             android:text="On"
-            android:textSize="@dimen/textSize" />
+            android:textSize="@dimen/textSize" 
+            android:textColor="@color/unclick"/>
 
         <game.tris.utility.ArcadeRadioButton
             android:id="@+id/soundOff"
@@ -40,7 +42,8 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:text="Off"
-            android:textSize="@dimen/textSize" />
+            android:textSize="@dimen/textSize"
+            android:textColor="@color/unclick" />
     </RadioGroup>
 
    	<ImageView
@@ -55,7 +58,8 @@
         android:layout_height="wrap_content"
         android:text="@string/settingsText2"
         android:textSize="@dimen/textSize"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/unclick" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
@@ -73,7 +77,8 @@
             android:checked="true"
             android:text="Easy"
             android:textSize="@dimen/textSize"
-            android:typeface="serif" />
+            android:typeface="serif"
+            android:textColor="@color/unclick" />
 
         <game.tris.utility.ArcadeRadioButton
             android:id="@+id/diffMedium"
@@ -81,7 +86,8 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:text="Medium" 
-            android:textSize="@dimen/textSize" />
+            android:textSize="@dimen/textSize"
+            android:textColor="@color/unclick" />
 
         <game.tris.utility.ArcadeRadioButton
             android:id="@+id/diffHard"
@@ -89,7 +95,8 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:text="Hard"
-            android:textSize="@dimen/textSize" />
+            android:textSize="@dimen/textSize"
+            android:textColor="@color/unclick" />
         
     </RadioGroup>
 

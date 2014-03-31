@@ -6,8 +6,8 @@
     <string name="todo">Welcome to Tris Game, select your game and have fun!</string>
     
     
-    <string name="startGame1vIA">Play vs IA!</string>
-    <string name="startGame1v1">Play 1 vs 1!</string>
+    <string name="startGame1vIA">New Game</string>
+    <string name="startGame1v1">Multiplayer</string>
     <string name="settingsButton">Settings</string>
     
     <string name="alreadysign">Already sign!</string>
