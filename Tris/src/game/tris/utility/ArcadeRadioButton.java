@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 public class ArcadeRadioButton extends RadioButton{
 	   	

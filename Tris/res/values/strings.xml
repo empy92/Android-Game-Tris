@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tris</string>
+    <string name="app_name">Pixel Tris</string>
     <string name="action_settings">Settings</string>
-    <string name="todo">Welcome to Tris Game, select your game and have fun!</string>
-    
     
     <string name="startGame1vIA">New Game</string>
     <string name="startGame1v1">Multiplayer</string>
     <string name="settingsButton">Settings</string>
     
-    <string name="alreadysign">Already sign!</string>
-    <string name="noonewins">Two good or two noob players?</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
     
     <string name="title_activity_grid">GridActivity</string>
     <string name="title_activity_splash">SplashActivity</string>

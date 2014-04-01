@@ -1,6 +1,5 @@
 package game.tris.utility;
 
-import android.R.bool;
 import android.graphics.Point;
 
 /*

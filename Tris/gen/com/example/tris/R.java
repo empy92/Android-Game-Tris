@@ -96,20 +96,22 @@ public final class R {
     }
     public static final class string {
         public static final int action_settings=0x7f070001;
-        public static final int alreadysign=0x7f070006;
         public static final int app_name=0x7f070000;
-        public static final int company=0x7f07000e;
-        public static final int noonewins=0x7f070007;
-        public static final int settingsButton=0x7f070005;
-        public static final int settingsText1=0x7f07000b;
-        public static final int settingsText2=0x7f07000c;
-        public static final int startGame1v1=0x7f070004;
-        public static final int startGame1vIA=0x7f070003;
-        public static final int title_activity_grid=0x7f070008;
-        public static final int title_activity_settings=0x7f07000a;
-        public static final int title_activity_splash=0x7f070009;
-        public static final int todo=0x7f070002;
-        public static final int website=0x7f07000d;
+        public static final int company=0x7f070010;
+        public static final int easy=0x7f070007;
+        public static final int hard=0x7f070009;
+        public static final int medium=0x7f070008;
+        public static final int off=0x7f070006;
+        public static final int on=0x7f070005;
+        public static final int settingsButton=0x7f070004;
+        public static final int settingsText1=0x7f07000d;
+        public static final int settingsText2=0x7f07000e;
+        public static final int startGame1v1=0x7f070003;
+        public static final int startGame1vIA=0x7f070002;
+        public static final int title_activity_grid=0x7f07000a;
+        public static final int title_activity_settings=0x7f07000c;
+        public static final int title_activity_splash=0x7f07000b;
+        public static final int website=0x7f07000f;
     }
     public static final class style {
         /** 

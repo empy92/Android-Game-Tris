@@ -1,21 +1,10 @@
 package game.tris.activity;
 
-import java.util.List;
-
 import game.tris.utility.ArcadeTextView;
 import game.tris.utility.AudioPlay;
-import game.tris.utility.Game;
-
 import com.example.tris.R;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.AlertDialog;
-import android.app.ActivityManager.RunningTaskInfo;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.Menu;
@@ -23,9 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
+
 
 public class MainActivity extends Activity implements OnClickListener, OnTouchListener{
 	
@@ -110,36 +97,7 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 			if(soundSet == 0){
 				AudioPlay.stopAudioBackground();
 			}
-	    }
-	    
-	    //!!!!! DA IMPLEMENTARE LO STOP DELLA MUSICA QUANDO PREMO TASTO HOME O BLOCCO LO SCHERMO
-	    
-    	
-    	/*	#####FASE DI CONTROLLO#####  
-    	if (this.isFinishing()){ //basically BACK was pressed from this activity
-	    	AudioPlay.stopAudio();
-	    	Toast.makeText(MainActivity.this, "YOU PRESSED BACK FROM YOUR 'HOME/MAIN' ACTIVITY", Toast.LENGTH_SHORT).show();
-	    }
-	    Context context = getApplicationContext();
-	    ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-	    List<RunningTaskInfo> taskInfo = am.getRunningTasks(1);
-	    if (!taskInfo.isEmpty()) {
-	      ComponentName topActivity = taskInfo.get(0).topActivity; 
-	      if (!topActivity.getPackageName().equals(context.getPackageName())) {
-	    	AudioPlay.stopAudio();
-	        Toast.makeText(MainActivity.this, "YOU LEFT YOUR APP", Toast.LENGTH_SHORT).show();
-	      }
-	      else {
-	        Toast.makeText(MainActivity.this, "YOU SWITCHED ACTIVITIES WITHIN YOUR APP", Toast.LENGTH_SHORT).show();
-	      }
-	    }
-	    super.onPause();
-    	################################ */
-    	
+	    }   	
 	    super.onPause();  
 	  }
-	
-	private void onlyOne(int[] idView, int id){
-		
-	}
 }

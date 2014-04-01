@@ -32,7 +32,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:checked="true"
-            android:text="On"
+            android:text="@string/on"
             android:textSize="@dimen/textSize" 
             android:textColor="@color/unclick"/>
 
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="0.1"
-            android:text="Off"
+            android:text="@string/off"
             android:textSize="@dimen/textSize"
             android:textColor="@color/unclick" />
     </RadioGroup>
@@ -75,7 +75,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:checked="true"
-            android:text="Easy"
+            android:text="@string/easy"
             android:textSize="@dimen/textSize"
             android:typeface="serif"
             android:textColor="@color/unclick" />
@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="0.1"
-            android:text="Medium" 
+            android:text="@string/medium" 
             android:textSize="@dimen/textSize"
             android:textColor="@color/unclick" />
 
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="0.1"
-            android:text="Hard"
+            android:text="@string/hard"
             android:textSize="@dimen/textSize"
             android:textColor="@color/unclick" />
         
