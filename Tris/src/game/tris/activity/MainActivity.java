@@ -23,13 +23,15 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        /*
         // verifico che la musica non sia disattivata
         SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
 		soundSet = sharedPreferences.getInt("soundKey", 0);
 		if(soundSet == 0){
 	        //faccio partire la musica di background all'avvio dell' activity
-	        AudioPlay.playAudioBackground(MainActivity.this, R.raw.get_lucky);
+	        AudioPlay.playAudioBackground(MainActivity.this, R.raw.song);
 		}
+		*/
         
         ArcadeTextView startGame1vIA = (ArcadeTextView)findViewById(R.id.startGame1vIA);
         startGame1vIA.setOnClickListener(this);
@@ -86,7 +88,7 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 		return false;
 	}
 	
-	
+	/*
 	@Override
 	  protected void onPause() {
 		
@@ -100,4 +102,5 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	    }   	
 	    super.onPause();  
 	  }
+	  */
 }

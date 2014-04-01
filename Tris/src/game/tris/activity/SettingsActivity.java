@@ -70,13 +70,14 @@ public class SettingsActivity extends Activity {
 			
 			    	     RadioButton checkedRadioButton = (RadioButton)radioGroupSound.findViewById(checkedId);
 			    	     int checkedIndex = radioGroupSound.indexOfChild(checkedRadioButton);
-			    	     
+			    	     /*
 			    	     // quando scelgo ON nel radiogroup mi fa partire la musica se questa non sta giˆ andando
 			    	     if(!AudioPlay.isPlayingAudioBackground() && checkedIndex == 0){
-			    	    	 AudioPlay.playAudioBackground(SettingsActivity.this, R.raw.get_lucky);
+			    	    	 AudioPlay.playAudioBackground(SettingsActivity.this, R.raw.song);
 			    	     }else if(AudioPlay.isPlayingAudioBackground() && checkedIndex == 1){
 			    	    	 AudioPlay.stopAudioBackground();
 			    	     }
+			    	     */
 			    	     SavePreferences(SOUND, checkedIndex);
 	    	    }};
 	    	    
@@ -117,7 +118,7 @@ public class SettingsActivity extends Activity {
 		getMenuInflater().inflate(R.menu.settings, menu);
 		return true;
 	}
-	
+	/*
 	@Override
 	 protected void onPause() {
 		
@@ -133,6 +134,6 @@ public class SettingsActivity extends Activity {
 	    }    
 	    super.onPause();
 	  }
-	
+	*/
 	
 }

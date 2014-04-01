@@ -306,7 +306,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 		else
 			((ImageView) v).setImageResource(R.drawable.o);
 	}
-	
+	/*
 	@Override
 	 protected void onPause() {
 		
@@ -323,6 +323,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	    }
 		super.onPause();
 	  }
+	  */
 
 	@Override
 	public boolean onTouch(View arg0, MotionEvent event) {
