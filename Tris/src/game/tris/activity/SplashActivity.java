@@ -1,7 +1,7 @@
 package game.tris.activity;
  
 import game.tris.utility.AudioPlay;
-import com.example.tris.R;
+import game.tris.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;

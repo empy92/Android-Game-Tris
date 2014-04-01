@@ -2,7 +2,7 @@ package game.tris.activity;
 
 
 import game.tris.utility.AudioPlay;
-import com.example.tris.R;
+import game.tris.R;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
@@ -52,7 +52,7 @@ public class SettingsActivity extends Activity {
 		        	public void onClick(View arg0){
 		        		Intent sendIntent = new Intent();
 		        		sendIntent.setAction(Intent.ACTION_SEND);
-		        		sendIntent.putExtra(Intent.EXTRA_TEXT, "Tris App Wild Stone Studio! Join the fun! (link store)");
+		        		sendIntent.putExtra(Intent.EXTRA_TEXT, "Pixel Tris - Wild Stone Studio! Join the fun!");
 		        		sendIntent.setType("text/plain");
 		        		startActivity(sendIntent);
 		            }

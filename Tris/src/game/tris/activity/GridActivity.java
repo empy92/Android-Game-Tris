@@ -1,7 +1,7 @@
 package game.tris.activity;
 
 
-import com.example.tris.R;
+import game.tris.R;
 import game.tris.utility.AudioPlay;
 import game.tris.utility.Game;
 import game.tris.utility.Grid;

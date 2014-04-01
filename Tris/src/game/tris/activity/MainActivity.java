@@ -2,7 +2,7 @@ package game.tris.activity;
 
 import game.tris.utility.ArcadeTextView;
 import game.tris.utility.AudioPlay;
-import com.example.tris.R;
+import game.tris.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
