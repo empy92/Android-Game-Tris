@@ -1,6 +1,6 @@
 package game.tris.activity;
 
-
+import game.tris.utility.OnSwipeTouchListener;
 import game.tris.utility.AudioPlay;
 import game.tris.R;
 import android.net.Uri;
@@ -58,6 +58,9 @@ public class SettingsActivity extends Activity {
 		            }
 	            });
 		        
+		        ImageView swiper = (ImageView)findViewById(R.id.swipe);
+	    	    swiper.setOnTouchListener(new OnSwipeTouchListener(SettingsActivity.this));
+		        
 		        LoadSoundPreferences();
 		        LoadDiffPreferences();
 	}
@@ -111,7 +114,9 @@ public class SettingsActivity extends Activity {
   	    	  RadioButton savedCheckedRadioButton = (RadioButton)radioGroupDiff.getChildAt(savedRadioIndex);
   	    	  savedCheckedRadioButton.setChecked(true);
   	    }
-
+    	    
+    	    
+    	    
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
