@@ -100,7 +100,7 @@
         
     </RadioGroup>
 
-    <ImageView
+   	<ImageView
         android:id="@+id/space"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -108,16 +108,18 @@
     
    	<ImageView
         android:id="@+id/swipe"
-        android:background="#ffffff"
-        android:layout_width="match_parent"
+        android:background="@drawable/background"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="0.1" />
-        
-   	<ImageView
+   	
+   	   	<ImageView
         android:id="@+id/space"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.1" />
+        
+
 	
 	<LinearLayout
         android:layout_width="match_parent"
