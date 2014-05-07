@@ -60,12 +60,15 @@ public class OnSwipeTouchListener implements OnTouchListener{
     }
 
     public void onSwipeRight() {
-    	arcade.setText("a    "+background.changeRight()+"    a");
+    	background.changeRight();
+    	arcade.setText(background.getColortoString());
     	background.paintBackground();
     }
 
     public void onSwipeLeft() {
-    	arcade.setText("b    "+background.changeLeft()+"    b");
+    	background.changeLeft();
+    	arcade.setText(background.getColortoString());
+    	background.paintBackground();
     }
 
 	@Override

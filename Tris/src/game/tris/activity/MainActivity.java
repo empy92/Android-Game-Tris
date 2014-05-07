@@ -2,6 +2,7 @@ package game.tris.activity;
 
 import game.tris.utility.ArcadeTextView;
 import game.tris.utility.AudioPlay;
+import game.tris.utility.Background;
 import game.tris.R;
 import android.os.Bundle;
 import android.app.Activity;
@@ -12,11 +13,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.widget.LinearLayout;
 
 
 public class MainActivity extends Activity implements OnClickListener, OnTouchListener{
 	
 	static int soundSet;
+	Background background;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,8 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	        AudioPlay.playAudioBackground(MainActivity.this, R.raw.song);
 		}
 		*/
+        background = new Background(this, (LinearLayout)findViewById(R.id.activity_mn));
+        background.paintBackground();
         
         ArcadeTextView startGame1vIA = (ArcadeTextView)findViewById(R.id.startGame1vIA);
         startGame1vIA.setOnClickListener(this);
@@ -39,7 +44,7 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
         startGame1v1.setOnClickListener(this);
         ArcadeTextView settingsButton = (ArcadeTextView)findViewById(R.id.settings);
         settingsButton.setOnClickListener(this);
-        
+	
         findViewById(R.id.settings).setOnTouchListener(this);
         findViewById(R.id.startGame1v1).setOnTouchListener(this);
         findViewById(R.id.startGame1vIA).setOnTouchListener(this);
@@ -68,6 +73,12 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 			startActivity(intent);
 		}
 
+	}
+	
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		background.paintBackground();
 	}
 
 

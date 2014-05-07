@@ -3,6 +3,7 @@ package game.tris.activity;
 
 import game.tris.R;
 import game.tris.utility.AudioPlay;
+import game.tris.utility.Background;
 import game.tris.utility.Game;
 import game.tris.utility.Grid;
 import android.media.MediaPlayer;
@@ -13,12 +14,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class GridActivity extends Activity implements OnClickListener, OnTouchListener{
 
@@ -32,6 +36,9 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_grid);
+		Background background = new Background(this, (LinearLayout)findViewById(R.id.activity_grid));
+		background.paintBackground();
+		
 		view = new int[9];
 		init();
 		Intent intent = getIntent();

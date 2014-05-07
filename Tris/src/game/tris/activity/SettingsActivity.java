@@ -37,8 +37,8 @@ public class SettingsActivity extends Activity {
 		radioGroupSound.setOnCheckedChangeListener(radioSoundGroupOnCheckedChangeListener);
 		radioGroupDiff.setOnCheckedChangeListener(radioDiffGroupOnCheckedChangeListener);
 
-		Background background = new Background(0,this);
-		
+		Background background = new Background(this, (LinearLayout)findViewById(R.id.activity_settings));
+		background.paintBackground();
 		// imageview che mi collega al sito di wild stone studio
 		ImageView linksito = (ImageView)findViewById(R.id.wild);
 	        linksito.setOnClickListener(new OnClickListener() {
@@ -64,6 +64,7 @@ public class SettingsActivity extends Activity {
 	            });
 		        
 		        ArcadeTextView swiper = (ArcadeTextView)findViewById(R.id.swipe);
+		        swiper.setText(background.getColortoString());
 	    	    swiper.setOnTouchListener(new OnSwipeTouchListener(SettingsActivity.this, swiper, background));
 		        
 		        LoadSoundPreferences();
@@ -79,7 +80,7 @@ public class SettingsActivity extends Activity {
 			    	     RadioButton checkedRadioButton = (RadioButton)radioGroupSound.findViewById(checkedId);
 			    	     int checkedIndex = radioGroupSound.indexOfChild(checkedRadioButton);
 			    	     /*
-			    	     // quando scelgo ON nel radiogroup mi fa partire la musica se questa non sta giˆ andando
+			    	     // quando scelgo ON nel radiogroup mi fa partire la musica se questa non sta giï¿½ andando
 			    	     if(!AudioPlay.isPlayingAudioBackground() && checkedIndex == 0){
 			    	    	 AudioPlay.playAudioBackground(SettingsActivity.this, R.raw.song);
 			    	     }else if(AudioPlay.isPlayingAudioBackground() && checkedIndex == 1){

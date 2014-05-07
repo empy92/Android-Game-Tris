@@ -6,6 +6,9 @@ import android.widget.LinearLayout;
 
 public class Background implements Runnable{
 	
+	private static final String MAX = "      ";
+	private static final String MIN = "      ";
+	
 	private String[] color = {
 			"BLUE",
 			"GREEN",
@@ -30,23 +33,34 @@ public class Background implements Runnable{
 			R.drawable.gold
 	};
 	
-	private int index;
+	private static int index = 0;
 	private LinearLayout layout;
 	private Activity activity;
 	
-	public Background(int color, Activity activity){
+	public Background(int color, Activity activity, LinearLayout layout){
 		index = color;
 		this.activity = activity;
-		layout = (LinearLayout)activity.findViewById()
+		this.layout = layout;
 	}
 	
-	public String changeLeft(){
-		System.out.println(index);
-		return color[(++index)%(color.length)];
+	public Background(Activity activity, LinearLayout layout){
+		this.activity = activity;
+		this.layout = layout;
 	}
 	
-	public String changeRight(){
-		return color[(--index)%(color.length)];
+	public void changeLeft(){
+		index = (++index)%(color.length);
+	}
+	
+	public void changeRight(){
+		if(--index<0)
+			index = color.length-1;
+		else
+			index = index%(color.length);
+	}
+	
+	public String getColortoString(){
+		return MAX+color[index]+MIN;
 	}
 	
 	public int getColor(){
@@ -60,7 +74,7 @@ public class Background implements Runnable{
 	@Override
 	public void run() {
 		if(activity!=null)
-			layout.setBackgroundResource(R.drawable.flame);
+			layout.setBackgroundResource(background[index]);
 		else
 			System.out.println("NULL");
 	}
