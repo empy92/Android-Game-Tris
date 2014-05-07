@@ -1,5 +1,6 @@
 package game.tris.utility;
 
+import game.tris.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.GestureDetector;
@@ -7,6 +8,7 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 @SuppressLint("NewApi")
@@ -14,8 +16,10 @@ public class OnSwipeTouchListener implements OnTouchListener{
 
     private final GestureDetector gestureDetector;
     private Context ctx;
-    public OnSwipeTouchListener (Context ctx){
+    private ArcadeTextView arcade;
+    public OnSwipeTouchListener (Context ctx, ArcadeTextView arcade){
     	this.ctx = ctx;
+    	this.arcade = arcade;
         gestureDetector = new GestureDetector(ctx, new GestureListener());
     }
 
@@ -52,11 +56,11 @@ public class OnSwipeTouchListener implements OnTouchListener{
     }
 
     public void onSwipeRight() {
-    	Toast.makeText(ctx, "right", Toast.LENGTH_SHORT).show();
+    	arcade.setText("cagata");
     }
 
     public void onSwipeLeft() {
-    	Toast.makeText(ctx, "left", Toast.LENGTH_SHORT).show();
+    	arcade.setText(R.string.flame);
     }
 
 	@Override

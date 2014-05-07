@@ -24,4 +24,8 @@
     <string name="website">www.wildstonestudio.altervista.org</string>
     <string name="company">Wild Stone Studio</string>
     
+    <string name="blue">BLUE</string>
+    <string name="red">RED</string>
+    <string name="flame">FLAME</string>
+    
 </resources>

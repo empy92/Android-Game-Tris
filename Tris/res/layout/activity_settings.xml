@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="1.1" >
+    android:weightSum="1" >
 
     <game.tris.utility.ArcadeTextView
         android:id="@+id/textView1"
@@ -106,12 +106,15 @@
         android:layout_height="0dp"
         android:layout_weight="0.1" />
     
-   	<ImageView
+   	<game.tris.utility.ArcadeTextView
         android:id="@+id/swipe"
-        android:background="@drawable/background"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.1" />
+        android:layout_height="wrap_content"
+        android:text="BLUE"
+        android:textSize="@dimen/textSize"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/unclick" />
+
    	
    	   	<ImageView
         android:id="@+id/space"

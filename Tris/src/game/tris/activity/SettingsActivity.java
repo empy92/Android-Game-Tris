@@ -1,5 +1,6 @@
 package game.tris.activity;
 
+import game.tris.utility.ArcadeTextView;
 import game.tris.utility.OnSwipeTouchListener;
 import game.tris.utility.AudioPlay;
 import game.tris.R;
@@ -58,8 +59,8 @@ public class SettingsActivity extends Activity {
 		            }
 	            });
 		        
-		        ImageView swiper = (ImageView)findViewById(R.id.swipe);
-	    	    swiper.setOnTouchListener(new OnSwipeTouchListener(SettingsActivity.this));
+		        ArcadeTextView swiper = (ArcadeTextView)findViewById(R.id.swipe);
+	    	    swiper.setOnTouchListener(new OnSwipeTouchListener(SettingsActivity.this, swiper));
 		        
 		        LoadSoundPreferences();
 		        LoadDiffPreferences();
