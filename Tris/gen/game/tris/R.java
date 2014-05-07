@@ -35,23 +35,29 @@ public final class R {
     }
     public static final class drawable {
         public static final int background=0x7f020000;
-        public static final int background2=0x7f020001;
-        public static final int background3=0x7f020002;
-        public static final int background5=0x7f020003;
-        public static final int background9=0x7f020004;
-        public static final int grid=0x7f020005;
-        public static final int grid_layer=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int logo01=0x7f020008;
-        public static final int logo_wild=0x7f020009;
-        public static final int o=0x7f02000a;
-        public static final int share=0x7f02000b;
-        public static final int stella=0x7f02000c;
-        public static final int x=0x7f02000d;
+        public static final int blue=0x7f020001;
+        public static final int brown=0x7f020002;
+        public static final int flame=0x7f020003;
+        public static final int gold=0x7f020004;
+        public static final int green=0x7f020005;
+        public static final int grid=0x7f020006;
+        public static final int grid_layer=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int ice=0x7f020009;
+        public static final int logo01=0x7f02000a;
+        public static final int logo_wild=0x7f02000b;
+        public static final int o=0x7f02000c;
+        public static final int red=0x7f02000d;
+        public static final int share=0x7f02000e;
+        public static final int stella=0x7f02000f;
+        public static final int vintage=0x7f020010;
+        public static final int violet=0x7f020011;
+        public static final int x=0x7f020012;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f0a001a;
-        public static final int action_settings=0x7f0a001e;
+        public static final int LinearLayout1=0x7f0a001b;
+        public static final int action_settings=0x7f0a001f;
+        public static final int activity_settings=0x7f0a000d;
         public static final int b00=0x7f0a0000;
         public static final int b01=0x7f0a0002;
         public static final int b02=0x7f0a0003;
@@ -61,26 +67,26 @@ public final class R {
         public static final int b20=0x7f0a0007;
         public static final int b21=0x7f0a0008;
         public static final int b22=0x7f0a0009;
-        public static final int background=0x7f0a001c;
-        public static final int diffEasy=0x7f0a0013;
-        public static final int diffHard=0x7f0a0015;
-        public static final int diffMedium=0x7f0a0014;
-        public static final int grid=0x7f0a001d;
-        public static final int imgLogo=0x7f0a001b;
-        public static final int radioGroup1=0x7f0a0012;
-        public static final int radioGroup2=0x7f0a000e;
+        public static final int background=0x7f0a001d;
+        public static final int diffEasy=0x7f0a0014;
+        public static final int diffHard=0x7f0a0016;
+        public static final int diffMedium=0x7f0a0015;
+        public static final int grid=0x7f0a001e;
+        public static final int imgLogo=0x7f0a001c;
+        public static final int radioGroup1=0x7f0a0013;
+        public static final int radioGroup2=0x7f0a000f;
         public static final int settings=0x7f0a000c;
-        public static final int share=0x7f0a0019;
-        public static final int soundOff=0x7f0a0010;
-        public static final int soundOn=0x7f0a000f;
+        public static final int share=0x7f0a001a;
+        public static final int soundOff=0x7f0a0011;
+        public static final int soundOn=0x7f0a0010;
         public static final int space=0x7f0a0001;
         public static final int startGame1v1=0x7f0a000b;
         public static final int startGame1vIA=0x7f0a000a;
-        public static final int swipe=0x7f0a0016;
-        public static final int textView1=0x7f0a000d;
-        public static final int textView2=0x7f0a0011;
-        public static final int vote=0x7f0a0017;
-        public static final int wild=0x7f0a0018;
+        public static final int swipe=0x7f0a0017;
+        public static final int textView1=0x7f0a000e;
+        public static final int textView2=0x7f0a0012;
+        public static final int vote=0x7f0a0018;
+        public static final int wild=0x7f0a0019;
     }
     public static final class layout {
         public static final int activity_grid=0x7f030000;

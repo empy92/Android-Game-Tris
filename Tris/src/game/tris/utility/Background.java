@@ -1,6 +1,7 @@
 package game.tris.utility;
 
-import android.R;
+import game.tris.R;
+import android.app.Activity;
 import android.widget.LinearLayout;
 
 public class Background implements Runnable{
@@ -27,19 +28,20 @@ public class Background implements Runnable{
 			R.drawable.flame,
 			R.drawable.vintage,
 			R.drawable.gold
-	}
+	};
 	
 	private int index;
 	private LinearLayout layout;
-	private Thread thread;
+	private Activity activity;
 	
-	public Background(LinearLayout layout, int color){
+	public Background(int color, Activity activity){
 		index = color;
-		this.layout = layout;
-		thread = new Thread();
+		this.activity = activity;
+		layout = (LinearLayout)activity.findViewById()
 	}
 	
 	public String changeLeft(){
+		System.out.println(index);
 		return color[(++index)%(color.length)];
 	}
 	
@@ -52,12 +54,15 @@ public class Background implements Runnable{
 	}
 	
 	public void paintBackground(){
-		thread.start();
+		activity.runOnUiThread(this);
 	}
 
 	@Override
 	public void run() {
-		layout.setBackgroundResource(background[index]);
+		if(activity!=null)
+			layout.setBackgroundResource(R.drawable.flame);
+		else
+			System.out.println("NULL");
 	}
 }
 

@@ -1,6 +1,8 @@
 package game.tris.utility;
 
 import game.tris.R;
+import game.tris.activity.MainActivity;
+import game.tris.activity.SettingsActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.GestureDetector;
@@ -17,9 +19,11 @@ public class OnSwipeTouchListener implements OnTouchListener{
     private final GestureDetector gestureDetector;
     private Context ctx;
     private ArcadeTextView arcade;
-    public OnSwipeTouchListener (Context ctx, ArcadeTextView arcade){
+    private Background background;
+    public OnSwipeTouchListener (Context ctx, ArcadeTextView arcade, Background background){
     	this.ctx = ctx;
     	this.arcade = arcade;
+    	this.background = background;
         gestureDetector = new GestureDetector(ctx, new GestureListener());
     }
 
@@ -56,11 +60,12 @@ public class OnSwipeTouchListener implements OnTouchListener{
     }
 
     public void onSwipeRight() {
-    	arcade.setText("cagata");
+    	arcade.setText("a    "+background.changeRight()+"    a");
+    	background.paintBackground();
     }
 
     public void onSwipeLeft() {
-    	arcade.setText(R.string.flame);
+    	arcade.setText("b    "+background.changeLeft()+"    b");
     }
 
 	@Override

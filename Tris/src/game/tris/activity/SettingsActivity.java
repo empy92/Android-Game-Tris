@@ -1,6 +1,7 @@
 package game.tris.activity;
 
 import game.tris.utility.ArcadeTextView;
+import game.tris.utility.Background;
 import game.tris.utility.OnSwipeTouchListener;
 import game.tris.utility.AudioPlay;
 import game.tris.R;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -34,6 +36,8 @@ public class SettingsActivity extends Activity {
 		
 		radioGroupSound.setOnCheckedChangeListener(radioSoundGroupOnCheckedChangeListener);
 		radioGroupDiff.setOnCheckedChangeListener(radioDiffGroupOnCheckedChangeListener);
+
+		Background background = new Background(0,this);
 		
 		// imageview che mi collega al sito di wild stone studio
 		ImageView linksito = (ImageView)findViewById(R.id.wild);
@@ -60,7 +64,7 @@ public class SettingsActivity extends Activity {
 	            });
 		        
 		        ArcadeTextView swiper = (ArcadeTextView)findViewById(R.id.swipe);
-	    	    swiper.setOnTouchListener(new OnSwipeTouchListener(SettingsActivity.this, swiper));
+	    	    swiper.setOnTouchListener(new OnSwipeTouchListener(SettingsActivity.this, swiper, background));
 		        
 		        LoadSoundPreferences();
 		        LoadDiffPreferences();
