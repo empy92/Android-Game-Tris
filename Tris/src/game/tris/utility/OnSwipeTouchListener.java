@@ -1,20 +1,13 @@
 package game.tris.utility;
 
-import java.sql.Savepoint;
-
-import game.tris.R;
-import game.tris.activity.MainActivity;
 import game.tris.activity.SettingsActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 @SuppressLint("NewApi")
 public class OnSwipeTouchListener implements OnTouchListener{

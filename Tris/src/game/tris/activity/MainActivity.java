@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 
 
 public class MainActivity extends Activity implements OnClickListener, OnTouchListener{
