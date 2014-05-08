@@ -1,7 +1,10 @@
 package game.tris.utility;
 
 import game.tris.R;
+import game.tris.activity.GridActivity;
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.widget.LinearLayout;
 
 public class Background implements Runnable{
@@ -73,9 +76,17 @@ public class Background implements Runnable{
 
 	@Override
 	public void run() {
-		if(activity!=null)
-			layout.setBackgroundResource(background[index]);
-		else
+		if(activity!=null){
+			if(activity.getClass() == GridActivity.class){
+				Drawable[] layers = new Drawable[2];
+				layers[0] = activity.getResources().getDrawable(background[index]);
+				layers[1] = activity.getResources().getDrawable(R.drawable.grid);
+				LayerDrawable layerDrawable = new LayerDrawable(layers);
+				layout.setBackgroundDrawable(layerDrawable);
+			}
+			else
+				layout.setBackgroundResource(background[index]);
+		}else
 			System.out.println("NULL");
 	}
 }
