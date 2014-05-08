@@ -11,12 +11,26 @@ public class Background implements Runnable{
 	
 	private static final String MAX = "      ";
 	private static final String MIN = "      ";
+	private static final boolean UNLOCK = true;
+	private static final boolean LOCK = false;
+	private static final String UNKNOWN = "? ? ?";
+	
+	public static final int BLUE = 0;
+	public static final int GREEN = 1;
+	public static final int RED = 2;
+	public static final int PURPLE = 3;
+	public static final int BROWN = 4;
+	public static final int ICE = 5;
+	public static final int FLAME = 6;
+	public static final int VINTAGE = 7;
+	public static final int GOLD = 8;
+	
 	
 	private String[] color = {
 			"BLUE",
 			"GREEN",
 			"RED",
-			"VIOLET",
+			"PURPLE",
 			"BROWN",
 			"ICE",
 			"FLAME",
@@ -34,6 +48,18 @@ public class Background implements Runnable{
 			R.drawable.flame,
 			R.drawable.vintage,
 			R.drawable.gold
+	};
+	
+	private boolean[] unlock = {
+			UNLOCK,
+			UNLOCK,
+			UNLOCK,
+			UNLOCK,
+			UNLOCK,
+			LOCK,
+			LOCK,
+			LOCK,
+			LOCK
 	};
 	
 	private static int index = 0;
@@ -63,7 +89,10 @@ public class Background implements Runnable{
 	}
 	
 	public String getColortoString(){
-		return MAX+color[index]+MIN;
+		String string = MAX+UNKNOWN+MIN;
+		if(unlock[index] = UNLOCK)
+			string = MAX+color[index]+MIN;
+		return string;
 	}
 	
 	public int getColor(){
@@ -71,7 +100,8 @@ public class Background implements Runnable{
 	}
 	
 	public void paintBackground(){
-		activity.runOnUiThread(this);
+		if(unlock[index] == true)
+			activity.runOnUiThread(this);
 	}
 
 	@Override
@@ -88,6 +118,10 @@ public class Background implements Runnable{
 				layout.setBackgroundResource(background[index]);
 		}else
 			System.out.println("NULL");
+	}
+	
+	public void unLock(int color){
+		unlock[color] = UNLOCK;
 	}
 }
 
