@@ -90,7 +90,7 @@ public class Background implements Runnable{
 	
 	public String getColortoString(){
 		String string = MAX+UNKNOWN+MIN;
-		if(unlock[index] = UNLOCK)
+		if(unlock[index] == UNLOCK)
 			string = MAX+color[index]+MIN;
 		return string;
 	}
@@ -100,7 +100,7 @@ public class Background implements Runnable{
 	}
 	
 	public void paintBackground(){
-		if(unlock[index] == true)
+		if(unlock[index] == UNLOCK)
 			activity.runOnUiThread(this);
 	}
 

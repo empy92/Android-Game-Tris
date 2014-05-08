@@ -13,6 +13,9 @@ import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -150,4 +153,115 @@ public class SettingsActivity extends Activity {
 	  }
 	*/
 	
+	public void setAnimationRight(final View v){
+			
+			final Animation animationSlideInLeft;
+			final Animation animationSlideOutRight;
+				
+		 	animationSlideInLeft = AnimationUtils.loadAnimation(this, 
+	        		android.R.anim.slide_in_left);
+	        animationSlideOutRight = AnimationUtils.loadAnimation(this, 
+	        		android.R.anim.slide_out_right);
+	        
+	        animationSlideInLeft.setDuration(1000);
+	        animationSlideOutRight.setDuration(1000);
+	            
+	        animationSlideInLeft.setAnimationListener(new AnimationListener() {
+				
+				@Override
+				public void onAnimationStart(Animation animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationRepeat(Animation animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationEnd(Animation animation) {
+					
+				}
+			});
+	        animationSlideOutRight.setAnimationListener(new AnimationListener() {
+				
+				@Override
+				public void onAnimationStart(Animation animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationRepeat(Animation animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationEnd(Animation animation) {
+					v.startAnimation(animationSlideInLeft);
+				}
+			});
+	        v.startAnimation(animationSlideOutRight);
+	        v.setVisibility(View.VISIBLE); 
+	}
+	
+	public void setAnimationLeft(final View v){
+		
+		final Animation animationSlideInRight;
+		final Animation animationSlideOutLeft;
+        
+    	animationSlideInRight = AnimationUtils.loadAnimation(this, 
+        		R.anim.slide_in_right);
+        animationSlideOutLeft = AnimationUtils.loadAnimation(this, 
+        		R.anim.slide_out_left);
+        
+        animationSlideInRight.setDuration(1000);
+        animationSlideOutLeft.setDuration(1000);
+        
+        
+        animationSlideInRight.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				
+			}
+		});
+        animationSlideOutLeft.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				 v.startAnimation(animationSlideInRight);
+			}
+		});
+        
+        v.startAnimation(animationSlideOutLeft);
+        v.setVisibility(View.VISIBLE); 
+	}
 }
