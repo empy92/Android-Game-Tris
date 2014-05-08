@@ -14,11 +14,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 
 
 public class MainActivity extends Activity implements OnClickListener, OnTouchListener{
 	
 	static int soundSet;
+	final String BACKGROUND = "backgroundKey";
 	Background background;
 	
     @Override
@@ -35,7 +37,8 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	        AudioPlay.playAudioBackground(MainActivity.this, R.raw.song);
 		}
 		*/
-        background = new Background(this, (LinearLayout)findViewById(R.id.activity_mn));
+        
+        background = new Background(LoadBackgroundPreferences(),this, (LinearLayout)findViewById(R.id.activity_mn));
         background.paintBackground();
         
         ArcadeTextView startGame1vIA = (ArcadeTextView)findViewById(R.id.startGame1vIA);
@@ -114,4 +117,12 @@ public class MainActivity extends Activity implements OnClickListener, OnTouchLi
 	    super.onPause();  
 	  }
 	  */
+	
+	// letto le preferences di BACKGROUND per prendere l'indice dello sfondo, 0 se non è presente
+	private int LoadBackgroundPreferences(){
+		  SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
+		  int savedBackgroundIndex = sharedPreferences.getInt(BACKGROUND, 0);
+		  return savedBackgroundIndex;
+	}
 }
+

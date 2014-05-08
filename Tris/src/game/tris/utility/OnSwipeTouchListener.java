@@ -1,10 +1,13 @@
 package game.tris.utility;
 
+import java.sql.Savepoint;
+
 import game.tris.R;
 import game.tris.activity.MainActivity;
 import game.tris.activity.SettingsActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
@@ -15,7 +18,8 @@ import android.widget.Toast;
 
 @SuppressLint("NewApi")
 public class OnSwipeTouchListener implements OnTouchListener{
-
+	
+	final String BACKGROUND = "backgroundKey";
     private final GestureDetector gestureDetector;
     private Context ctx;
     private ArcadeTextView arcade;
@@ -61,12 +65,14 @@ public class OnSwipeTouchListener implements OnTouchListener{
 
     public void onSwipeRight() {
     	background.changeRight();
+    	((SettingsActivity) ctx).SavePreferences(BACKGROUND, background.getColor());
     	arcade.setText(background.getColortoString());
     	background.paintBackground();
     }
 
     public void onSwipeLeft() {
     	background.changeLeft();
+    	((SettingsActivity) ctx).SavePreferences(BACKGROUND, background.getColor());
     	arcade.setText(background.getColortoString());
     	background.paintBackground();
     }

@@ -39,6 +39,7 @@ public class SettingsActivity extends Activity {
 
 		Background background = new Background(this, (LinearLayout)findViewById(R.id.activity_settings));
 		background.paintBackground();
+		
 		// imageview che mi collega al sito di wild stone studio
 		ImageView linksito = (ImageView)findViewById(R.id.wild);
 	        linksito.setOnClickListener(new OnClickListener() {
@@ -63,10 +64,12 @@ public class SettingsActivity extends Activity {
 		            }
 	            });
 		        
+		        // swiper per il cambio background
 		        ArcadeTextView swiper = (ArcadeTextView)findViewById(R.id.swipe);
 		        swiper.setText(background.getColortoString());
-	    	    swiper.setOnTouchListener(new OnSwipeTouchListener(SettingsActivity.this, swiper, background));
+	    	    swiper.setOnTouchListener(new OnSwipeTouchListener(SettingsActivity.this, swiper, background));	    
 		        
+	    	    // setto i radio button con il valore che ho inserito nelle preferences
 		        LoadSoundPreferences();
 		        LoadDiffPreferences();
 	}
@@ -100,7 +103,7 @@ public class SettingsActivity extends Activity {
 	    	    	     SavePreferences(DIFFICULTY, checkedIndex);
 	        	    }};
 	    	    
-    	    private void SavePreferences(String key, int value){
+    	    public void SavePreferences(String key, int value){
     	    	SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
     	    	SharedPreferences.Editor editor = sharedPreferences.edit();
     	    	editor.putInt(key, value);
@@ -119,7 +122,7 @@ public class SettingsActivity extends Activity {
   	    	  int savedRadioIndex = sharedPreferences.getInt(DIFFICULTY, 0);
   	    	  RadioButton savedCheckedRadioButton = (RadioButton)radioGroupDiff.getChildAt(savedRadioIndex);
   	    	  savedCheckedRadioButton.setChecked(true);
-  	    }
+    	    }
     	    
     	    
     	    
