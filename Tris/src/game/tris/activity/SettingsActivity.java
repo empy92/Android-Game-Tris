@@ -64,7 +64,7 @@ public class SettingsActivity extends Activity {
 		        	public void onClick(View arg0){
 		        		Intent sendIntent = new Intent();
 		        		sendIntent.setAction(Intent.ACTION_SEND);
-		        		sendIntent.putExtra(Intent.EXTRA_TEXT, "Pixel Tris - Wild Stone Studio! Join the fun!");
+		        		sendIntent.putExtra(Intent.EXTRA_TEXT, "Pixel Tris - Wild Stone Studio! Join the fun!\n\nCheck now on: https://play.google.com/store/apps/details?id=game.tris");
 		        		sendIntent.setType("text/plain");
 		        		startActivity(sendIntent);
 		            }
