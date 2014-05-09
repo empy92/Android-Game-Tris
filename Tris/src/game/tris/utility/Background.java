@@ -114,7 +114,7 @@ public class Background implements Runnable{
 		if(activity!=null){
 			if(activity.getClass() == GridActivity.class){
 				Drawable[] layers = new Drawable[2];
-				layers[0] = activity.getResources().getDrawable(background[index]);
+				layers[0] = activity.getResources().getDrawable(background[availableColor]);
 				layers[1] = activity.getResources().getDrawable(R.drawable.grid);
 				LayerDrawable layerDrawable = new LayerDrawable(layers);
 				layout.setBackgroundDrawable(layerDrawable);
