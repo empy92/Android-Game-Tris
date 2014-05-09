@@ -63,11 +63,13 @@ public class Background implements Runnable{
 	};
 	
 	private static int index = 0;
+	private static int availableColor = 0;
 	private LinearLayout layout;
 	private Activity activity;
 	
 	public Background(int color, Activity activity, LinearLayout layout){
 		index = color;
+		availableColor = color;
 		this.activity = activity;
 		this.layout = layout;
 	}
@@ -79,6 +81,8 @@ public class Background implements Runnable{
 	
 	public void changeLeft(){
 		index = (++index)%(color.length);
+		if(unlock[index] == UNLOCK)
+			availableColor = index;
 	}
 	
 	public void changeRight(){
@@ -86,6 +90,8 @@ public class Background implements Runnable{
 			index = color.length-1;
 		else
 			index = index%(color.length);
+		if(unlock[index] == UNLOCK)
+			availableColor = index;
 	}
 	
 	public String getColortoString(){
@@ -96,12 +102,11 @@ public class Background implements Runnable{
 	}
 	
 	public int getColor(){
-		return index;
+		return availableColor;
 	}
 	
 	public void paintBackground(){
-		if(unlock[index] == UNLOCK)
-			activity.runOnUiThread(this);
+		activity.runOnUiThread(this);
 	}
 
 	@Override
@@ -115,7 +120,7 @@ public class Background implements Runnable{
 				layout.setBackgroundDrawable(layerDrawable);
 			}
 			else
-				layout.setBackgroundResource(background[index]);
+				layout.setBackgroundResource(background[availableColor]);
 		}else
 			System.out.println("NULL");
 	}
