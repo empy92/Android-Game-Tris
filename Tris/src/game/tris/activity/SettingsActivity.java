@@ -3,7 +3,6 @@ package game.tris.activity;
 import game.tris.utility.ArcadeTextView;
 import game.tris.utility.Background;
 import game.tris.utility.OnSwipeTouchListener;
-import game.tris.utility.AudioPlay;
 import game.tris.R;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
 
 public class SettingsActivity extends Activity {
 
@@ -28,6 +28,9 @@ public class SettingsActivity extends Activity {
 	final String SOUND = "soundKey"; 
 	final String DIFFICULTY = "diffKey";
 	static int soundSet;
+	Background background;
+	private long speedAnimation = 200;
+	OnSwipeTouchListener onSwipeTouchListener;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class SettingsActivity extends Activity {
 		radioGroupSound.setOnCheckedChangeListener(radioSoundGroupOnCheckedChangeListener);
 		radioGroupDiff.setOnCheckedChangeListener(radioDiffGroupOnCheckedChangeListener);
 
-		Background background = new Background(this, (LinearLayout)findViewById(R.id.activity_settings));
+		background = new Background(this, (LinearLayout)findViewById(R.id.activity_settings));
 		background.paintBackground();
 		
 		// imageview che mi collega al sito di wild stone studio
@@ -70,7 +73,10 @@ public class SettingsActivity extends Activity {
 		        // swiper per il cambio background
 		        ArcadeTextView swiper = (ArcadeTextView)findViewById(R.id.swipe);
 		        swiper.setText(background.getColortoString());
-	    	    swiper.setOnTouchListener(new OnSwipeTouchListener(SettingsActivity.this, swiper, background));	    
+		        
+		        onSwipeTouchListener = new OnSwipeTouchListener(SettingsActivity.this, swiper, background);
+		        
+	    	    swiper.setOnTouchListener(onSwipeTouchListener);
 		        
 	    	    // setto i radio button con il valore che ho inserito nelle preferences
 		        LoadSoundPreferences();
@@ -153,7 +159,7 @@ public class SettingsActivity extends Activity {
 	  }
 	*/
 	
-	public void setAnimationRight(final View v){
+	public void setAnimationRight(final TextView v){
 			
 			final Animation animationSlideInLeft;
 			final Animation animationSlideOutRight;
@@ -163,8 +169,8 @@ public class SettingsActivity extends Activity {
 	        animationSlideOutRight = AnimationUtils.loadAnimation(this, 
 	        		android.R.anim.slide_out_right);
 	        
-	        animationSlideInLeft.setDuration(1000);
-	        animationSlideOutRight.setDuration(1000);
+	        animationSlideInLeft.setDuration(speedAnimation);
+	        animationSlideOutRight.setDuration(speedAnimation);
 	            
 	        animationSlideInLeft.setAnimationListener(new AnimationListener() {
 				
@@ -182,7 +188,7 @@ public class SettingsActivity extends Activity {
 				
 				@Override
 				public void onAnimationEnd(Animation animation) {
-					
+					v.setOnTouchListener(onSwipeTouchListener);
 				}
 			});
 	        animationSlideOutRight.setAnimationListener(new AnimationListener() {
@@ -202,13 +208,16 @@ public class SettingsActivity extends Activity {
 				@Override
 				public void onAnimationEnd(Animation animation) {
 					v.startAnimation(animationSlideInLeft);
+					v.setText(background.getColortoString());
+			    	background.paintBackground();
+			    	v.setOnTouchListener(null);
 				}
 			});
 	        v.startAnimation(animationSlideOutRight);
 	        v.setVisibility(View.VISIBLE); 
 	}
 	
-	public void setAnimationLeft(final View v){
+	public void setAnimationLeft(final TextView v){
 		
 		final Animation animationSlideInRight;
 		final Animation animationSlideOutLeft;
@@ -218,8 +227,8 @@ public class SettingsActivity extends Activity {
         animationSlideOutLeft = AnimationUtils.loadAnimation(this, 
         		R.anim.slide_out_left);
         
-        animationSlideInRight.setDuration(1000);
-        animationSlideOutLeft.setDuration(1000);
+        animationSlideInRight.setDuration(speedAnimation);
+        animationSlideOutLeft.setDuration(speedAnimation);
         
         
         animationSlideInRight.setAnimationListener(new AnimationListener() {
@@ -238,7 +247,7 @@ public class SettingsActivity extends Activity {
 			
 			@Override
 			public void onAnimationEnd(Animation animation) {
-				
+				v.setOnTouchListener(onSwipeTouchListener);
 			}
 		});
         animationSlideOutLeft.setAnimationListener(new AnimationListener() {
@@ -258,6 +267,9 @@ public class SettingsActivity extends Activity {
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				 v.startAnimation(animationSlideInRight);
+				 v.setText(background.getColortoString());
+				 background.paintBackground();
+				 v.setOnTouchListener(null);
 			}
 		});
         

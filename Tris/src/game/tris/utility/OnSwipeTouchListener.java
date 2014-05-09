@@ -60,16 +60,12 @@ public class OnSwipeTouchListener implements OnTouchListener{
     	((SettingsActivity) ctx).setAnimationRight(arcade);
     	background.changeRight();
     	((SettingsActivity) ctx).SavePreferences(BACKGROUND, background.getColor());
-    	arcade.setText(background.getColortoString());
-    	background.paintBackground();
     }
 
     public void onSwipeLeft() {
     	((SettingsActivity) ctx).setAnimationLeft(arcade);
     	background.changeLeft();
     	((SettingsActivity) ctx).SavePreferences(BACKGROUND, background.getColor());
-    	arcade.setText(background.getColortoString());
-    	background.paintBackground();
     }
 
 	@Override
