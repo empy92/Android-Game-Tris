@@ -13,7 +13,7 @@ public class Background implements Runnable{
 	private static final String MIN = "      ";
 	private static final boolean UNLOCK = true;
 	private static final boolean LOCK = false;
-	private static final String UNKNOWN = "? ? ?";
+	public static final String UNKNOWN = MAX + "? ? ?" + MIN;
 	
 	public static final int BLUE = 0;
 	public static final int GREEN = 1;
@@ -50,7 +50,7 @@ public class Background implements Runnable{
 			R.drawable.gold
 	};
 	
-	private boolean[] unlock = {
+	private static boolean[] unlock = {
 			UNLOCK,
 			UNLOCK,
 			UNLOCK,
@@ -95,7 +95,7 @@ public class Background implements Runnable{
 	}
 	
 	public String getColortoString(){
-		String string = MAX+UNKNOWN+MIN;
+		String string = UNKNOWN;
 		if(unlock[index] == UNLOCK)
 			string = MAX+color[index]+MIN;
 		return string;
@@ -125,8 +125,19 @@ public class Background implements Runnable{
 			System.out.println("NULL");
 	}
 	
-	public void unLock(int color){
+	public static void unLock(int color){
 		unlock[color] = UNLOCK;
+	}
+	
+	public String getUnlockSegret(){
+		String segret = null;
+		if(index==VINTAGE)
+			segret = "SHARE WITH YOUR FRIENDS";
+		if(index==ICE)
+			segret = "WIN 5 TIME";
+		if(index==GOLD)
+			segret = "WIN 10 TIME WITH GOOD DIFFICULT";
+		return segret;
 	}
 }
 

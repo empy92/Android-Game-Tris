@@ -10,6 +10,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.backup.BackupAgent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,7 +30,13 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	int[] view;
 	int gameType;
 	static int level, soundSet;
-	
+	private static int winMedium = 0;
+	private static int winEasy = 0;
+	private final int UNLOCKMEDIUM = 10;
+	private final int UNLOCKBOTH = 5;
+	private final int COLORUNLOCKMEDIUM = Background.GOLD;
+	private final int COLORUNLOCKBOTH = Background.ICE;
+			
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -68,8 +75,22 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);	 
 				
 				// set title
-				if(gameType == 1)
-					alertDialogBuilder.setTitle("Good job! You win!");
+				if(gameType == 1){
+					if(level == Game.GOOD)
+						winMedium++;
+					else if(level == Game.EASY)
+						winEasy++;
+					if(winMedium == UNLOCKMEDIUM && level == Game.GOOD){
+						Background.unLock(COLORUNLOCKMEDIUM);
+						alertDialogBuilder.setTitle("Good job! You win!\nUnlock new GOLD background!");
+					}
+					if(winEasy+winMedium == UNLOCKBOTH){
+						Background.unLock(COLORUNLOCKBOTH);
+						alertDialogBuilder.setTitle("Good job! You win!\nUnlock new ICE background!");
+					}
+					else
+						alertDialogBuilder.setTitle("Good job! You win!");
+				}
 				else if (gameType == 2)	
 					alertDialogBuilder.setTitle("Good job player "+Integer.toString(game.getPlayer())+"!");
 					

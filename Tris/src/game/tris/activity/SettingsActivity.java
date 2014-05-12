@@ -21,6 +21,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SettingsActivity extends Activity {
 
@@ -31,6 +32,7 @@ public class SettingsActivity extends Activity {
 	Background background;
 	private long speedAnimation = 200;
 	OnSwipeTouchListener onSwipeTouchListener;
+	private final int COLORUNLOCK = Background.VINTAGE;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,8 @@ public class SettingsActivity extends Activity {
 		        		sendIntent.putExtra(Intent.EXTRA_TEXT, "Pixel Tris - Wild Stone Studio! Join the fun!\n\nCheck now on: https://play.google.com/store/apps/details?id=game.tris");
 		        		sendIntent.setType("text/plain");
 		        		startActivity(sendIntent);
+		        		Background.unLock(COLORUNLOCK);
+		        		//TODO add unlock message
 		            }
 	            });
 		        
@@ -77,7 +81,16 @@ public class SettingsActivity extends Activity {
 		        onSwipeTouchListener = new OnSwipeTouchListener(SettingsActivity.this, swiper, background);
 		        
 	    	    swiper.setOnTouchListener(onSwipeTouchListener);
-		        
+		        swiper.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						if(((TextView)v).getText().toString().compareTo(Background.UNKNOWN)==0)
+							Toast.makeText(SettingsActivity.this, background.getUnlockSegret(), 
+									Toast.LENGTH_SHORT).show();
+					}
+				});
+	    	    
 	    	    // setto i radio button con il valore che ho inserito nelle preferences
 		        LoadSoundPreferences();
 		        LoadDiffPreferences();
