@@ -109,10 +109,10 @@
     
    	<game.tris.utility.ArcadeTextView
         android:id="@+id/swipe"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/textTitle"
-        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:textColor="@color/unclick" />
 
    	

@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 
 public class Background implements Runnable{
 	
-	private static final String MAX = "      ";
-	private static final String MIN = "      ";
+	private static final String MAX = "";
+	private static final String MIN = "";
 	private static final boolean UNLOCK = true;
 	private static final boolean LOCK = false;
 	public static final String UNKNOWN = MAX + "? ? ?" + MIN;
@@ -125,8 +125,13 @@ public class Background implements Runnable{
 			System.out.println("NULL");
 	}
 	
-	public static void unLock(int color){
-		unlock[color] = UNLOCK;
+	public static boolean unLock(int color){
+		boolean unlockable = false;
+		if(unlock[color] == LOCK){
+			unlock[color] = UNLOCK;
+			unlockable = true;
+		}
+		return unlockable;
 	}
 	
 	public String getUnlockSegret(){

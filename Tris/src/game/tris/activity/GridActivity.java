@@ -10,7 +10,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.backup.BackupAgent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +19,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -32,10 +33,10 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	static int level, soundSet;
 	private static int winMedium = 0;
 	private static int winEasy = 0;
-	private final int UNLOCKMEDIUM = 10;
-	private final int UNLOCKBOTH = 5;
-	private final int COLORUNLOCKMEDIUM = Background.GOLD;
-	private final int COLORUNLOCKBOTH = Background.ICE;
+	private final static int UNLOCKICE = 5;
+	private final static int UNLOCKFLAME = 10;
+	private final static int UNLOCKGOLD = 15;
+	private final static int ROTATIONSPEED = 500;
 			
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -80,13 +81,17 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 						winMedium++;
 					else if(level == Game.EASY)
 						winEasy++;
-					if(winMedium == UNLOCKMEDIUM && level == Game.GOOD){
-						Background.unLock(COLORUNLOCKMEDIUM);
-						alertDialogBuilder.setTitle("Good job! You win!\nUnlock new GOLD background!");
-					}
-					if(winEasy+winMedium == UNLOCKBOTH){
-						Background.unLock(COLORUNLOCKBOTH);
+					if(winMedium+winEasy == UNLOCKICE){
+						Background.unLock(Background.ICE);
 						alertDialogBuilder.setTitle("Good job! You win!\nUnlock new ICE background!");
+					}
+					else if(winEasy+winMedium == UNLOCKFLAME){
+						Background.unLock(Background.FLAME);
+						alertDialogBuilder.setTitle("Good job! You win!\nUnlock new FLAME background!");
+					}
+					else if(winEasy+winMedium == UNLOCKGOLD){
+						Background.unLock(Background.GOLD);
+						alertDialogBuilder.setTitle("Good job! You win!\nUnlock new GOLD background!");
 					}
 					else
 						alertDialogBuilder.setTitle("Good job! You win!");
@@ -331,6 +336,7 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 			((ImageView) v).setImageResource(R.drawable.x);
 		else
 			((ImageView) v).setImageResource(R.drawable.o);
+		rotate(v);
 	}
 	/*
 	@Override
@@ -383,5 +389,13 @@ public class GridActivity extends Activity implements OnClickListener, OnTouchLi
 	private void setLevel(){
 		SharedPreferences sharedPreferences = getSharedPreferences("MY_SHARED_PREF", MODE_PRIVATE);
 		level = sharedPreferences.getInt("diffKey", Game.EASY);
+	}
+	
+	private void rotate(View v){
+		Animation animation = new RotateAnimation(0f, 360f, 
+        		Animation.RELATIVE_TO_SELF, 0.5f, 
+        		Animation.RELATIVE_TO_SELF, 0.5f);
+		animation.setDuration(ROTATIONSPEED);
+		v.setAnimation(animation);
 	}
 }

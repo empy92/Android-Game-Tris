@@ -1,20 +1,22 @@
 package game.tris.activity;
 
+import game.tris.R;
 import game.tris.utility.ArcadeTextView;
 import game.tris.utility.Background;
 import game.tris.utility.OnSwipeTouchListener;
-import game.tris.R;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -69,8 +71,21 @@ public class SettingsActivity extends Activity {
 		        		sendIntent.putExtra(Intent.EXTRA_TEXT, "Pixel Tris - Wild Stone Studio! Join the fun!\n\nCheck now on: https://play.google.com/store/apps/details?id=game.tris");
 		        		sendIntent.setType("text/plain");
 		        		startActivity(sendIntent);
-		        		Background.unLock(COLORUNLOCK);
-		        		//TODO add unlock message
+		        		if(Background.unLock(COLORUNLOCK)){
+		        			AlertDialog.Builder alertDialogBuilder = new AlertDialog
+		        													.Builder(SettingsActivity.this);	
+							alertDialogBuilder.setTitle("Unlock new VINTAGE background!");
+							alertDialogBuilder.setCancelable(false)
+							.setNeutralButton("THANKS!",new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,int id) {
+								}
+							});
+							
+		        			// create alert dialog
+		    				AlertDialog alertDialog = alertDialogBuilder.create();
+		    				// show it
+		    				alertDialog.show();
+		        		}
 		            }
 	            });
 		        
