@@ -9,11 +9,9 @@ import android.widget.LinearLayout;
 
 public class Background implements Runnable{
 	
-	private static final String MAX = "";
-	private static final String MIN = "";
 	private static final boolean UNLOCK = true;
 	private static final boolean LOCK = false;
-	public static final String UNKNOWN = MAX + "? ? ?" + MIN;
+	public static final String UNKNOWN = "? ? ?";
 	
 	public static final int BLUE = 0;
 	public static final int GREEN = 1;
@@ -97,7 +95,7 @@ public class Background implements Runnable{
 	public String getColortoString(){
 		String string = UNKNOWN;
 		if(unlock[index] == UNLOCK)
-			string = MAX+color[index]+MIN;
+			string = color[index];
 		return string;
 	}
 	
@@ -140,8 +138,10 @@ public class Background implements Runnable{
 			segret = "SHARE WITH YOUR FRIENDS";
 		if(index==ICE)
 			segret = "WIN 5 TIME";
+		if(index==FLAME)
+			segret = "WIN 10 TIME";
 		if(index==GOLD)
-			segret = "WIN 10 TIME WITH GOOD DIFFICULT";
+			segret = "WIN 15 TIME";
 		return segret;
 	}
 }

@@ -96,15 +96,6 @@ public class SettingsActivity extends Activity {
 		        onSwipeTouchListener = new OnSwipeTouchListener(SettingsActivity.this, swiper, background);
 		        
 	    	    swiper.setOnTouchListener(onSwipeTouchListener);
-		        swiper.setOnClickListener(new OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						if(((TextView)v).getText().toString().compareTo(Background.UNKNOWN)==0)
-							Toast.makeText(SettingsActivity.this, background.getUnlockSegret(), 
-									Toast.LENGTH_SHORT).show();
-					}
-				});
 	    	    
 	    	    // setto i radio button con il valore che ho inserito nelle preferences
 		        LoadSoundPreferences();

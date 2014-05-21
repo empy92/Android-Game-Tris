@@ -8,6 +8,7 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.Toast;
 
 @SuppressLint("NewApi")
 public class OnSwipeTouchListener implements OnTouchListener{
@@ -53,6 +54,14 @@ public class OnSwipeTouchListener implements OnTouchListener{
                 exception.printStackTrace();
             }
             return result;
+        }
+        
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent e) {
+        	if(background.getColortoString().compareTo(Background.UNKNOWN)==0)
+        	Toast.makeText(ctx, background.getUnlockSegret(), 
+					Toast.LENGTH_SHORT).show();
+        	return super.onSingleTapConfirmed(e);
         }
     }
 
